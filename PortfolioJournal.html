@@ -1,0 +1,1170 @@
+<!DOCTYPE html><!-- v1778756664 -->
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>יומן תיק — AMZN · MSFT · META · IBIT · VCX · CEG · DRAM</title>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+ --bg:#04040d;--s2:#0c0c1c;--s3:#121228;--s4:#191932;
+ --b1:rgba(255,255,255,.055);--b2:rgba(255,255,255,.10);
+ --t1:#eeeeff;--t2:#7878a8;--t3:#454570;
+ --grn:#1fd15a;--gd:rgba(31,209,90,.10);
+ --red:#e83c5a;--rd:rgba(232,60,90,.10);
+ --amb:#f5a623;--ad:rgba(245,166,35,.10);
+ --blu:#3d8bff;--bd:rgba(61,139,255,.10);
+ --pur:#a855f7;--pd:rgba(168,85,247,.10);
+ --cya:#06b6d4;--gold:#f5c842;
+ --fn:"Heebo",sans-serif;--fm:"IBM Plex Mono",monospace;
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--fn);background:var(--bg);color:var(--t1);min-height:100vh}
+.topbar{background:rgba(4,4,13,.97);border-bottom:1px solid var(--b1);backdrop-filter:blur(20px);padding:0 22px;height:50px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:300}
+.brand{display:flex;align-items:center;gap:10px}
+.bmark{width:32px;height:32px;background:linear-gradient(135deg,#3d8bff,#a855f7);border-radius:7px;display:flex;align-items:center;justify-content:center;font-family:var(--fm);font-size:10px;font-weight:700;color:#fff}
+.bname{font-size:14px;font-weight:800}
+.bsub{font-size:9px;color:var(--t3);letter-spacing:2px}
+.bdg{display:inline-flex;align-items:center;gap:4px;padding:3px 9px;border-radius:20px;font-size:10px;font-weight:600}
+.bgg{background:var(--gd);border:1px solid rgba(31,209,90,.22);color:var(--grn)}
+.brr{background:var(--rd);border:1px solid rgba(232,60,90,.22);color:var(--red)}
+.ldot{width:5px;height:5px;border-radius:50%;background:var(--grn);animation:pu 2s infinite}
+@keyframes pu{0%,100%{opacity:1}50%{opacity:.3}}
+.nav{background:rgba(8,8,20,.98);border-bottom:1px solid var(--b1);position:sticky;top:50px;z-index:299;display:flex;padding:0 22px;overflow-x:auto;scrollbar-width:none}
+.nav::-webkit-scrollbar{display:none}
+.nb{display:flex;align-items:center;gap:6px;padding:10px 13px;cursor:pointer;border:none;background:none;color:var(--t3);font-family:var(--fn);font-size:12px;font-weight:600;border-bottom:2px solid transparent;white-space:nowrap;transition:all .15s}
+.nb:hover{color:var(--t1)}
+.nb.on{color:var(--t1);border-bottom-color:var(--blu)}
+.ntk{font-family:var(--fm);font-size:10px;padding:2px 6px;border-radius:4px;font-weight:700}
+.live-bar{display:flex;align-items:center;justify-content:space-between;background:var(--s2);border:1px solid rgba(31,209,90,.18);border-radius:10px;padding:9px 14px;margin-bottom:14px;gap:10px;flex-wrap:wrap}
+.live-prices{display:flex;gap:7px;flex-wrap:wrap;flex:1}
+.lp-item{display:flex;align-items:center;gap:6px;background:var(--s3);border-radius:7px;padding:5px 10px;cursor:pointer;transition:all .15s}
+.lp-item:hover{background:var(--s4)}
+.lp-tkr{font-family:var(--fm);font-size:9px;font-weight:700;padding:2px 5px;border-radius:3px}
+.lp-price{font-family:var(--fm);font-size:13px;font-weight:700}
+.rfbtn{display:flex;align-items:center;gap:5px;padding:6px 13px;border-radius:7px;font-size:11px;font-weight:700;cursor:pointer;border:1px solid rgba(31,209,90,.3);background:rgba(31,209,90,.08);color:var(--grn);font-family:var(--fn);white-space:nowrap}
+.rfbtn:hover{background:rgba(31,209,90,.15)}
+.rfbtn:disabled{opacity:.4;cursor:not-allowed}
+.live-ts{font-size:9px;color:var(--t3)}
+.disc{background:var(--ad);border-bottom:1px solid rgba(245,166,35,.15);padding:6px 22px;font-size:10px;color:var(--amb);text-align:center}
+.main{max-width:1260px;margin:0 auto;padding:20px 22px}
+.pg{display:none;animation:fi .2s ease}
+.pg.on{display:block}
+@keyframes fi{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:translateY(0)}}
+.hero{position:relative;overflow:hidden;border-radius:16px;border:1px solid var(--b2);padding:22px 26px;margin-bottom:16px}
+.hl{position:absolute;top:0;left:0;right:0;height:3px}
+.htop{display:grid;grid-template-columns:1fr auto;gap:16px;align-items:flex-start;margin-bottom:14px}
+.hl2{display:flex;gap:13px}
+.hico{width:50px;height:50px;border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.htk2{font-family:var(--fm);font-size:10px;font-weight:700;padding:2px 8px;border-radius:4px;display:inline-block;margin-bottom:4px}
+.hn{font-size:21px;font-weight:900;letter-spacing:-.4px;margin-bottom:3px}
+.hd{font-size:11px;color:var(--t2);line-height:1.6}
+.htags{display:flex;flex-wrap:wrap;gap:5px;margin-top:7px}
+.tag{font-size:9px;padding:2px 8px;border-radius:20px;font-weight:600;border:1px solid}
+.hr2{text-align:left}
+.hpx{font-size:32px;font-weight:900;font-family:var(--fm);letter-spacing:-1.5px}
+.hch{font-size:10px;margin-top:3px;color:var(--t2)}
+.rlbl{font-size:9px;letter-spacing:2px;color:var(--t3);font-weight:600;margin-bottom:4px}
+.rrow{display:flex;justify-content:space-between;font-family:var(--fm);font-size:10px;color:var(--t3);margin-bottom:4px}
+.rtr{height:7px;background:var(--b1);border-radius:4px;position:relative;overflow:visible}
+.rg{height:100%;border-radius:4px;background:linear-gradient(90deg,#e83c5a,#f5a623,#1fd15a)}
+.rp{width:12px;height:12px;background:#fff;border-radius:50%;position:absolute;top:-3px;transform:translateX(-50%);border:2px solid var(--bg);box-shadow:0 0 0 2px var(--blu)}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:11px;margin-bottom:11px}
+.panel{background:var(--s2);border:1px solid var(--b1);border-radius:11px;padding:15px 18px;margin-bottom:11px}
+.panel.hig{border-color:rgba(31,209,90,.18);background:rgba(31,209,90,.025)}
+.panel.hir{border-color:rgba(232,60,90,.18);background:rgba(232,60,90,.025)}
+.sec{font-size:9px;letter-spacing:2.5px;color:var(--t3);font-weight:700;margin-bottom:10px;display:flex;align-items:center;gap:6px}
+.sb2{width:3px;height:11px;border-radius:2px;flex-shrink:0}
+.mb{display:flex;align-items:center;gap:8px;margin-bottom:7px}
+.mbl{font-size:11px;color:var(--t2);min-width:175px;text-align:right}
+.mbt{flex:1;height:5px;background:var(--b1);border-radius:3px;overflow:hidden}
+.mbf{height:100%;border-radius:3px}
+.mbv{font-size:11px;font-family:var(--fm);font-weight:600;min-width:55px;text-align:left}
+.bs-g{display:grid;grid-template-columns:1fr 1fr;gap:7px}
+.bsi{background:var(--s3);border-radius:7px;padding:8px 11px}
+.bsl{font-size:9px;letter-spacing:1.2px;color:var(--t3);font-weight:600;margin-bottom:4px}
+.bsv{font-size:13px;font-weight:700;font-family:var(--fm)}
+.buff-g{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-bottom:9px}
+.bi{background:var(--s3);border-radius:7px;padding:8px 10px;display:flex;align-items:flex-start;gap:6px}
+.bico{font-size:14px;flex-shrink:0}
+.bn2{font-size:10px;color:var(--t2);margin-bottom:1px;font-weight:600}
+.bnote2{font-size:9px;color:var(--t3)}
+.btot{background:linear-gradient(135deg,var(--s3),var(--s4));border-radius:9px;padding:12px 14px;display:flex;align-items:center;gap:13px;border:1px solid var(--b2)}
+.bscore{font-size:34px;font-weight:900;font-family:var(--fm);letter-spacing:-2px}
+.bstars{font-size:15px;color:#f5c842;margin-bottom:2px}
+.bverd{font-size:12px;font-weight:700}
+.ai{display:flex;align-items:flex-start;gap:7px;padding:7px 10px;background:rgba(31,209,90,.06);border:1px solid rgba(31,209,90,.12);border-radius:7px;margin-bottom:5px;font-size:11px;color:var(--t2);line-height:1.6}
+.ri{display:flex;align-items:flex-start;gap:7px;padding:7px 10px;background:var(--s3);border-radius:7px;margin-bottom:5px;font-size:11px;color:var(--t2);line-height:1.6}
+.rd2{width:7px;height:7px;border-radius:50%;flex-shrink:0;margin-top:3px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:7px;margin-bottom:13px}
+.kpi{background:var(--s2);border:1px solid var(--b1);border-radius:9px;padding:10px 12px}
+.kl{font-size:9px;letter-spacing:1.5px;color:var(--t3);font-weight:600;margin-bottom:4px}
+.kv{font-size:15px;font-weight:700;font-family:var(--fm)}
+.ks{font-size:9px;color:var(--t3);margin-top:2px}
+.verd{border-radius:11px;padding:13px 17px;display:flex;gap:12px;align-items:flex-start;border:1px solid;margin-bottom:10px}
+.vic{font-size:24px;flex-shrink:0}
+.vrec{font-size:18px;font-weight:900;font-family:var(--fm);letter-spacing:-.4px}
+.vsub{font-size:11px;color:var(--t2);margin-top:4px;line-height:1.65}
+/* Overview */
+.ov-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:9px;margin-bottom:16px}
+.oc{background:var(--s2);border:1px solid var(--b1);border-radius:10px;padding:12px;cursor:pointer;transition:all .15s;position:relative;overflow:hidden}
+.oc:hover{transform:translateY(-2px);border-color:var(--b2)}
+.oa{position:absolute;top:0;left:0;right:0;height:2px}
+.otk{font-family:var(--fm);font-size:10px;font-weight:700;padding:2px 6px;border-radius:4px;display:inline-block;margin-bottom:6px}
+.opx{font-size:18px;font-weight:900;font-family:var(--fm);margin-bottom:3px}
+.orec{font-size:10px;font-weight:700;padding:2px 7px;border-radius:4px;display:inline-block;margin-bottom:5px}
+.owhat{font-size:10px;color:var(--t2);line-height:1.45;margin-bottom:4px}
+.oup{font-family:var(--fm);font-size:10px;font-weight:700}
+.tw{background:var(--s2);border:1px solid var(--b2);border-radius:11px;overflow-x:auto;margin-bottom:16px}
+table.ot{width:100%;border-collapse:collapse;font-size:11px;min-width:600px}
+table.ot thead tr{background:var(--s3);border-bottom:1px solid var(--b2)}
+table.ot th{padding:8px 12px;font-size:9px;letter-spacing:1.8px;color:var(--t3);font-weight:700;text-align:right}
+table.ot tbody tr{border-bottom:1px solid var(--b1)}
+table.ot tbody tr:hover{background:var(--s3)}
+table.ot td{padding:9px 12px}
+.star{color:#f5c842}
+/* Smart AI */
+.ai-card{background:var(--s2);border:1px solid var(--b1);border-radius:12px;overflow:hidden;margin-bottom:12px}
+.ai-ch{padding:14px 17px 11px;display:flex;align-items:center;gap:10px;border-bottom:1px solid var(--b1)}
+.ai-icon{width:36px;height:36px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
+.ai-title{font-size:13px;font-weight:800}
+.ai-sub{font-size:10px;color:var(--t3)}
+.ai-body{padding:13px 17px}
+.ai-out{background:var(--s3);border-radius:8px;padding:12px 15px;min-height:80px;font-size:12px;color:var(--t2);line-height:1.75;max-height:320px;overflow-y:auto}
+.ai-out strong{color:var(--t1)}
+.tkr-row{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:10px}
+.tkr-btn{font-family:var(--fm);font-size:10px;font-weight:700;padding:3px 9px;border-radius:5px;border:1px solid;cursor:pointer;background:none;transition:all .15s}
+.run-btn{display:inline-flex;align-items:center;gap:6px;padding:6px 14px;border-radius:7px;font-size:11px;font-weight:700;cursor:pointer;border:none;color:#fff;font-family:var(--fn);margin-bottom:9px}
+.run-btn:disabled{opacity:.4;cursor:not-allowed}
+.spin{display:inline-block;width:11px;height:11px;border:2px solid rgba(255,255,255,.15);border-top-color:#fff;border-radius:50%;animation:spin .7s linear infinite;vertical-align:middle;margin-right:4px}
+@keyframes spin{to{transform:rotate(360deg)}}
+@media(max-width:800px){
+ .main,.topbar,.nav,.disc,.live-bar{padding-left:12px;padding-right:12px}
+ .ov-grid{grid-template-columns:repeat(2,1fr)}
+ .g2,.buff-g{grid-template-columns:1fr}
+ .htop{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<div class="topbar">
+ <div class="brand">
+  <div class="bmark">IR</div>
+  <div><div class="bname">יומן תיק — Alpha Research</div><div class="bsub">7 נכסים · APR-MAY 2026</div></div>
+ </div>
+ <div style="display:flex;gap:7px;align-items:center">
+  <div class="bdg bgg"><div class="ldot"></div>עדכני</div>
+  <div class="bdg brr">⚡ Earnings 29 אפר' — AMZN·MSFT·META</div>
+ </div>
+</div>
+<div class="nav">
+ <button class="nb on" onclick="go('ov',this)">⊞ תיק</button>
+  <button class="nb" onclick="go('amzn',this)"><span class="ntk" style="background:#5a2a08;color:$250">AMZN</span>Amazon</button>
+  <button class="nb" onclick="go('msft',this)"><span class="ntk" style="background:#1b3a6b;color:$422">MSFT</span>Microsoft</button>
+  <button class="nb" onclick="go('meta',this)"><span class="ntk" style="background:#13204a;color:$662">META</span>Meta</button>
+  <button class="nb" onclick="go('ibit',this)"><span class="ntk" style="background:#3a2700;color:#f5c842">IBIT</span>Bitcoin ETF</button>
+  <button class="nb" onclick="go('vcx',this)"><span class="ntk" style="background:#1a1a3a;color:$89">VCX</span>Fundrise VC</button>
+  <button class="nb" onclick="go('ceg',this)"><span class="ntk" style="background:#0a1f2e;color:$275">CEG</span>Constellation</button>
+  <button class="nb" onclick="go('dram',this)"><span class="ntk" style="background:#1a0a2e;color:$51">DRAM</span>Memory ETF</button>
+ <button class="nb" onclick="go('smart',this)"><span class="ntk" style="background:#0a2a1a;color:#1fd15a">🤖</span>Smart AI</button>
+</div>
+<div class="disc">⚠ יומן מחקר לצרכי לימוד בלבד · אינו ייעוץ השקעות · נתונים מאומתים — 14 מאי 2026</div>
+<div class="main">
+
+<!-- OVERVIEW -->
+<div class="pg on" id="pg-ov">
+ <div style="font-size:26px;font-weight:900;letter-spacing:-.5px;margin-bottom:5px">תיק השקעות — <span style="color:var(--blu)">7 נכסים</span></div>
+ <div style="font-size:12px;color:var(--t2);margin-bottom:14px">כולל: D/E · שולי רווח · ROE · FCF · מאזן · צבר · Buffett · מנכ"ל · יתרונות · סיכונים · מחירים בזמן אמת</div>
+
+ <!-- LIVE BAR -->
+ <div class="live-bar">
+  <div class="live-prices">
+   <div class="lp-item" onclick="go('amzn',document.querySelectorAll('.nb')[1])">
+    <span class="lp-tkr" style="background:#5a2a08;color:#f5a623">AMZN</span>
+    <span class="lp-price" id="lp-AMZN" style="color:#f5a623">$250</span>
+    <span class="lp-chg" id="lc-AMZN" style="font-size:10px;font-family:var(--fm)"></span>
+   </div>
+   <div class="lp-item" onclick="go('msft',document.querySelectorAll('.nb')[2])">
+    <span class="lp-tkr" style="background:#1b3a6b;color:#3d8bff">MSFT</span>
+    <span class="lp-price" id="lp-MSFT" style="color:#3d8bff">$422</span>
+    <span class="lp-chg" id="lc-MSFT" style="font-size:10px;font-family:var(--fm)"></span>
+   </div>
+   <div class="lp-item" onclick="go('meta',document.querySelectorAll('.nb')[3])">
+    <span class="lp-tkr" style="background:#13204a;color:#3d8bff">META</span>
+    <span class="lp-price" id="lp-META" style="color:#3d8bff">$662</span>
+    <span class="lp-chg" id="lc-META" style="font-size:10px;font-family:var(--fm)"></span>
+   </div>
+   <div class="lp-item" onclick="go('ibit',document.querySelectorAll('.nb')[4])">
+    <span class="lp-tkr" style="background:#3a2700;color:#f5c842">IBIT</span>
+    <span class="lp-price" id="lp-IBIT" style="color:#f5c842">$44</span>
+    <span class="lp-chg" id="lc-IBIT" style="font-size:10px;font-family:var(--fm)"></span>
+   </div>
+   <div class="lp-item" onclick="go('vcx',document.querySelectorAll('.nb')[5])">
+    <span class="lp-tkr" style="background:#1a1a3a;color:#a855f7">VCX</span>
+    <span class="lp-price" id="lp-VCX" style="color:#a855f7">$89</span>
+    <span class="lp-chg" id="lc-VCX" style="font-size:10px;font-family:var(--fm)"></span>
+   </div>
+   <div class="lp-item" onclick="go('ceg',document.querySelectorAll('.nb')[6])">
+    <span class="lp-tkr" style="background:#0a1f2e;color:#06b6d4">CEG</span>
+    <span class="lp-price" id="lp-CEG" style="color:#06b6d4">$275</span>
+    <span class="lp-chg" id="lc-CEG" style="font-size:10px;font-family:var(--fm)"></span>
+   </div>
+   <div class="lp-item" onclick="go('dram',document.querySelectorAll('.nb')[7])">
+    <span class="lp-tkr" style="background:#1a0a2e;color:#e879f9">DRAM</span>
+    <span class="lp-price" id="lp-DRAM" style="color:#e879f9">$51</span>
+    <span class="lp-chg" id="lc-DRAM" style="font-size:10px;font-family:var(--fm)"></span>
+   </div>
+  </div>
+  <div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px">
+   <button class="rfbtn" id="rfbtn" onclick="fetchAllPrices()">⚡ מחירים חיים</button>
+   <span class="live-ts" id="live-ts">לחץ לעדכון</span>
+  </div>
+ </div>
+
+ <div class="ov-grid">
+  <div class="oc" onclick="go('amzn',document.querySelectorAll('.nb')[1])">
+   <div class="oa" style="background:#f5a623"></div>
+   <div class="otk" style="background:#5a2a08;color:#f5a623">AMZN</div>
+   <div class="opx" style="color:#f5a623" id="card-px-AMZN">$250</div>
+   <div class="orec" style="background:var(--gd);color:var(--grn)">STRONG BUY</div>
+   <div class="owhat">AWS #1 · E-Commerce · Ads $75B</div>
+   <div class="oup" style="color:var(--grn)">יעד $291–320</div>
+  </div>
+  <div class="oc" onclick="go('msft',document.querySelectorAll('.nb')[2])">
+   <div class="oa" style="background:#3d8bff"></div>
+   <div class="otk" style="background:#1b3a6b;color:#3d8bff">MSFT</div>
+   <div class="opx" style="color:#3d8bff" id="card-px-MSFT">$422</div>
+   <div class="orec" style="background:var(--gd);color:var(--grn)">BUY</div>
+   <div class="owhat">Azure +39% · Backlog $625B · D/E 0.15</div>
+   <div class="oup" style="color:var(--grn)">יעד $550–590</div>
+  </div>
+  <div class="oc" onclick="go('meta',document.querySelectorAll('.nb')[3])">
+   <div class="oa" style="background:#3d8bff"></div>
+   <div class="otk" style="background:#13204a;color:#3d8bff">META</div>
+   <div class="opx" style="color:#3d8bff" id="card-px-META">$662</div>
+   <div class="orec" style="background:var(--gd);color:var(--grn)">STRONG BUY</div>
+   <div class="owhat">3.58B DAP · PEG 0.94 · FCF $46B</div>
+   <div class="oup" style="color:var(--grn)">יעד $838–856</div>
+  </div>
+  <div class="oc" onclick="go('ibit',document.querySelectorAll('.nb')[4])">
+   <div class="oa" style="background:#f5c842"></div>
+   <div class="otk" style="background:#3a2700;color:#f5c842">IBIT</div>
+   <div class="opx" style="color:#f5c842" id="card-px-IBIT">$44</div>
+   <div class="orec" style="background:var(--ad);color:var(--grn)">HOLD/BUY</div>
+   <div class="owhat">BlackRock · AUM $63B · BTC ~$76K</div>
+   <div class="oup" style="color:var(--grn)">יעד $65–90</div>
+  </div>
+  <div class="oc" onclick="go('vcx',document.querySelectorAll('.nb')[5])">
+   <div class="oa" style="background:#a855f7"></div>
+   <div class="otk" style="background:#1a1a3a;color:#a855f7">VCX</div>
+   <div class="opx" style="color:#a855f7" id="card-px-VCX">$89</div>
+   <div class="orec" style="background:rgba(168,85,247,.12);color:#a855f7">SPEC BUY</div>
+   <div class="owhat">Anthropic+OpenAI+SpaceX</div>
+   <div class="oup" style="color:#a855f7">יעד $110–130</div>
+  </div>
+  <div class="oc" onclick="go('ceg',document.querySelectorAll('.nb')[6])">
+   <div class="oa" style="background:#06b6d4"></div>
+   <div class="otk" style="background:#0a1f2e;color:#06b6d4">CEG</div>
+   <div class="opx" style="color:#06b6d4" id="card-px-CEG">$275</div>
+   <div class="orec" style="background:var(--gd);color:var(--grn)">BUY</div>
+   <div class="owhat">גרעין #1 · Calpine 23GW · EPS $11-12</div>
+   <div class="oup" style="color:var(--grn)">יעד $330–367</div>
+  </div>
+  <div class="oc" onclick="go('dram',document.querySelectorAll('.nb')[7])">
+   <div class="oa" style="background:#e879f9"></div>
+   <div class="otk" style="background:#1a0a2e;color:#e879f9">DRAM</div>
+   <div class="opx" style="color:#e879f9" id="card-px-DRAM">$51</div>
+   <div class="orec" style="background:rgba(168,85,247,.12);color:#a855f7">SPEC BUY</div>
+   <div class="owhat">Samsung+Micron+SK Hynix · +100%</div>
+   <div class="oup" style="color:#a855f7">יעד $60–75</div>
+  </div>
+ </div>
+
+ <div class="tw">
+  <table class="ot">
+   <thead><tr><th>מניה</th><th>מחיר</th><th>שם</th><th>המלצה</th><th>יעד 12M</th></tr></thead>
+   <tbody>
+  <tr>
+   <td><span class="ntk" style="background:#5a2a08;color:#f5a623">AMZN</span></td>
+   <td style="color:#f5a623;font-family:var(--fm);font-weight:600" id="tbl-px-AMZN">$250</td>
+   <td style="color:var(--t2)">Amazon</td>
+   <td style="color:var(--grn);font-family:var(--fm)">STRONG BUY</td>
+   <td style="color:var(--grn);font-family:var(--fm);font-weight:600">$291–320</td>
+  </tr>
+  <tr>
+   <td><span class="ntk" style="background:#1b3a6b;color:#3d8bff">MSFT</span></td>
+   <td style="color:#3d8bff;font-family:var(--fm);font-weight:600" id="tbl-px-MSFT">$422</td>
+   <td style="color:var(--t2)">Microsoft</td>
+   <td style="color:var(--grn);font-family:var(--fm)">BUY</td>
+   <td style="color:var(--grn);font-family:var(--fm);font-weight:600">$550–590</td>
+  </tr>
+  <tr>
+   <td><span class="ntk" style="background:#13204a;color:#3d8bff">META</span></td>
+   <td style="color:#3d8bff;font-family:var(--fm);font-weight:600" id="tbl-px-META">$662</td>
+   <td style="color:var(--t2)">Meta</td>
+   <td style="color:var(--grn);font-family:var(--fm)">STRONG BUY</td>
+   <td style="color:var(--grn);font-family:var(--fm);font-weight:600">$838–856</td>
+  </tr>
+  <tr>
+   <td><span class="ntk" style="background:#3a2700;color:#f5c842">IBIT</span></td>
+   <td style="color:#f5c842;font-family:var(--fm);font-weight:600" id="tbl-px-IBIT">$44</td>
+   <td style="color:var(--t2)">Bitcoin ETF</td>
+   <td style="color:var(--grn);font-family:var(--fm)">HOLD/BUY</td>
+   <td style="color:var(--grn);font-family:var(--fm);font-weight:600">$65–90</td>
+  </tr>
+  <tr>
+   <td><span class="ntk" style="background:#1a1a3a;color:#a855f7">VCX</span></td>
+   <td style="color:#a855f7;font-family:var(--fm);font-weight:600" id="tbl-px-VCX">$89</td>
+   <td style="color:var(--t2)">Fundrise VC</td>
+   <td style="color:var(--grn);font-family:var(--fm)">SPEC BUY</td>
+   <td style="color:var(--grn);font-family:var(--fm);font-weight:600">$110–130</td>
+  </tr>
+  <tr>
+   <td><span class="ntk" style="background:#0a1f2e;color:#06b6d4">CEG</span></td>
+   <td style="color:#06b6d4;font-family:var(--fm);font-weight:600" id="tbl-px-CEG">$275</td>
+   <td style="color:var(--t2)">Constellation</td>
+   <td style="color:var(--grn);font-family:var(--fm)">BUY</td>
+   <td style="color:var(--grn);font-family:var(--fm);font-weight:600">$330–367</td>
+  </tr>
+  <tr>
+   <td><span class="ntk" style="background:#1a0a2e;color:#e879f9">DRAM</span></td>
+   <td style="color:#e879f9;font-family:var(--fm);font-weight:600" id="tbl-px-DRAM">$51</td>
+   <td style="color:var(--t2)">Memory ETF</td>
+   <td style="color:var(--grn);font-family:var(--fm)">SPEC BUY</td>
+   <td style="color:var(--grn);font-family:var(--fm);font-weight:600">$60–75</td>
+  </tr>
+   </tbody>
+  </table>
+ </div>
+
+ <div class="panel">
+  <div class="sec"><span class="sb2" style="background:var(--grn)"></span>סדר עדיפויות</div>
+  <div style="display:flex;flex-direction:column;gap:6px">
+   <div style="padding:9px 13px;background:rgba(31,209,90,.07);border:1px solid rgba(31,209,90,.18);border-radius:8px;font-size:12px;color:var(--t2);line-height:1.65"><strong style="color:var(--grn)">#1 META</strong> — PEG 0.94, FCF $46B, Buffett 8.0/9. Best Idea. Earnings 29 אפר'. כנס 20-25%.</div>
+   <div style="padding:9px 13px;background:rgba(61,139,255,.05);border:1px solid rgba(61,139,255,.15);border-radius:8px;font-size:12px;color:var(--t2);line-height:1.65"><strong style="color:var(--blu)">#2 MSFT</strong> — ▼24% מהשיא, D/E 0.15, FCF $77B, Backlog $625B. Earnings 29 אפר'. כנס 15-20%.</div>
+   <div style="padding:9px 13px;background:rgba(245,166,35,.05);border:1px solid rgba(245,166,35,.14);border-radius:8px;font-size:12px;color:var(--t2);line-height:1.65"><strong style="color:var(--amb)">#3 AMZN</strong> — AWS $200B+ Backlog, Ads $75B, Sum-of-Parts $275-340. Earnings 29 אפר'. כנס 12-15%.</div>
+   <div style="padding:9px 13px;background:rgba(6,182,212,.05);border:1px solid rgba(6,182,212,.14);border-radius:8px;font-size:12px;color:var(--t2);line-height:1.65"><strong style="color:var(--cya)">#4 CEG</strong> — גרעין #1, RSI Oversold, EPS $11-12, Microsoft PPA. BUY יעד $367. כנס 8-12%.</div>
+   <div style="padding:9px 13px;background:rgba(245,200,66,.04);border:1px solid rgba(245,200,66,.14);border-radius:8px;font-size:12px;color:var(--t2);line-height:1.65"><strong style="color:var(--gold)">#5 IBIT</strong> — Halving 50%, BTC $76K. Accumulate dips $38-48. Hold 5-10%.</div>
+   <div style="padding:9px 13px;background:rgba(168,85,247,.04);border:1px solid rgba(168,85,247,.14);border-radius:8px;font-size:12px;color:var(--t2);line-height:1.65"><strong style="color:var(--pur)">#6 VCX</strong> — Anthropic+OpenAI+SpaceX pre-IPO. ≤7% ספקולציה. Hold.</div>
+   <div style="padding:9px 13px;background:rgba(232,121,249,.04);border:1px solid rgba(232,121,249,.14);border-radius:8px;font-size:12px;color:var(--t2);line-height:1.65"><strong style="color:#e879f9">#7 DRAM</strong> — Memory ETF +100% מהשקה. P/E 6.4x. Korea risk. כנס בתיקון $42-46 בלבד. ≤8%.</div>
+  </div>
+ </div>
+</div>
+
+<!-- STOCK PAGES -->
+<div class="pg" id="pg-amzn">
+<div class="hero" style="background:linear-gradient(135deg,#f5a6230d,#f5a62305)">
+ <div class="hl" style="background:#f5a623"></div>
+ <div class="htop">
+  <div class="hl2">
+   <div class="hico" style="background:#f5a62333;border:1px solid #f5a62355;font-size:11px;font-weight:700;color:#f5a623">AMZN</div>
+   <div>
+    <div class="htk2" style="background:#5a2a08;color:#f5a623">NASDAQ/NYSE: AMZN</div>
+    <div class="hn">Amazon</div>
+    <div class="hd">E-Commerce · AWS #1 Cloud · Advertising · Seattle WA · 1994 · 1.5M עובדים</div>
+    <div class="htags"><span class="tag" style="background:#f5a62322;color:#f5a623;border-color:#f5a62344">Wide Moat 9.3/10</span><span class="tag" style="background:#1fd15a22;color:#1fd15a;border-color:#1fd15a44">AWS +24% Q4</span><span class="tag" style="background:#e83c5a22;color:#e83c5a;border-color:#e83c5a44">FCF לחוץ CapEx</span><span class="tag" style="background:#3d8bff22;color:#3d8bff;border-color:#3d8bff44">Buffett 5.5/9</span></div>
+   </div>
+  </div>
+  <div class="hr2">
+   <div class="hpx" style="color:#f5a623" id="hpx-AMZN">$250</div>
+   <div class="hch" style="color:var(--t2)">Cap: $2.66T · P/E 35x · Beta 1.38 · ROE 22.3%</div>
+  </div>
+ </div>
+ <div style="display:flex;align-items:center;gap:10px;margin-top:10px;padding:9px 13px;background:rgba(0,0,0,.25);border-radius:8px;flex-wrap:wrap">
+  <span style="font-size:11px;color:var(--t3)">מחיר עדכני:</span>
+  <span style="font-family:var(--fm);font-size:20px;font-weight:900;color:#f5a623" id="pls-price-AMZN">$250</span>
+  <span style="font-family:var(--fm);font-size:11px;font-weight:700;padding:2px 8px;border-radius:5px" id="pls-chg-AMZN"></span>
+  <span style="font-size:9px;color:var(--t3);margin-right:auto" id="pls-time-AMZN">לחץ לרענון</span>
+  <button onclick="fetchSinglePrice('AMZN')" style="padding:4px 12px;border-radius:6px;font-size:10px;font-weight:700;cursor:pointer;border:1px solid #f5a62344;background:#f5a62311;color:#f5a623;font-family:var(--fn)">🔄 רענן מחיר</button>
+ </div>
+ <div class="rlbl" style="margin-top:10px">52 WEEK RANGE — $165 → $258</div>
+ <div class="rrow"><span>$165</span><span style="color:#f5a623">● $250</span><span>$258</span></div>
+ <div class="rtr"><div class="rg"></div><div class="rp" style="left:88%"></div></div>
+</div>
+
+<div class="g2">
+ <div class="panel">
+  <div class="sec"><span class="sb2" style="background:var(--grn)"></span>שולי רווח + תשואה</div>
+  <div class="mb"><div class="mbl">גולמי</div><div class="mbt"><div class="mbf" style="width:50%;background:#f5a623"></div></div><div class="mbv" style="color:#f5a623">50%</div></div><div class="mb"><div class="mbl">AWS Op Margin</div><div class="mbt"><div class="mbf" style="width:36%;background:#1fd15a"></div></div><div class="mbv" style="color:#1fd15a">36%</div></div><div class="mb"><div class="mbl">תפעולי</div><div class="mbt"><div class="mbf" style="width:11%;background:#1fd15a"></div></div><div class="mbv" style="color:#1fd15a">11.2%</div></div><div class="mb"><div class="mbl">נקי</div><div class="mbt"><div class="mbf" style="width:11%;background:#1fd15a"></div></div><div class="mbv" style="color:#1fd15a">10.8%</div></div><div class="mb"><div class="mbl">ROE</div><div class="mbt"><div class="mbf" style="width:22%;background:#1fd15a"></div></div><div class="mbv" style="color:#1fd15a">22.3%</div></div><div class="mb"><div class="mbl">ROIC</div><div class="mbt"><div class="mbf" style="width:14%;background:#f5a623"></div></div><div class="mbv" style="color:#f5a623">14.2%</div></div>
+ </div>
+ <div class="panel">
+  <div class="sec"><span class="sb2" style="background:var(--amb)"></span>מאזן · D/E · FCF</div>
+  <div class="bs-g"><div class="bsi"><div class="bsl">מזומן</div><div class="bsv" style="color:var(--amb)">$94.2B</div></div><div class="bsi"><div class="bsl">חוב</div><div class="bsv" style="color:var(--red)">$135.4B</div></div><div class="bsi"><div class="bsl">D/E</div><div class="bsv" style="color:var(--amb)">0.43</div></div><div class="bsi"><div class="bsl">Net Debt</div><div class="bsv" style="color:var(--red)">-$41B</div></div><div class="bsi"><div class="bsl">FCF FY25</div><div class="bsv" style="color:var(--red)">$11B ↓</div></div><div class="bsi"><div class="bsl">OCF</div><div class="bsv" style="color:var(--grn)">$130.7B</div></div><div class="bsi"><div class="bsl">Current Ratio</div><div class="bsv" style="color:var(--amb)">1.05</div></div><div class="bsi"><div class="bsl">AWS Backlog</div><div class="bsv" style="color:var(--grn)">$200B+</div></div></div>
+ </div>
+</div>
+
+<div class="panel">
+ <div class="sec"><span class="sb2" style="background:var(--gold)"></span>הנהלה · מנכ"ל</div>
+ <div style="padding:10px 13px;background:var(--s3);border-radius:8px;font-size:12px;color:var(--t2);line-height:1.75"><strong style="color:var(--t1)">Andy Jassy — CEO 2021 · Harvard BA+MBA · בנה AWS מ-$0 ל-$128B · ציון 8.5/10</strong></div>
+</div>
+
+<div class="panel">
+ <div class="sec"><span class="sb2" style="background:var(--gold)"></span>הערכת שווי וורן באפט</div>
+ <div class="buff-g"><div class="bi"><div class="bico">✅</div><div><div class="bn2">עסק מובן</div><div class="bnote2">Retail+Cloud+Ads</div></div></div><div class="bi"><div class="bico">✅</div><div><div class="bn2">היסטוריה</div><div class="bnote2">30 שנה</div></div></div><div class="bi"><div class="bico">✅</div><div><div class="bn2">עתיד</div><div class="bnote2">80% IT on-premise</div></div></div><div class="bi"><div class="bico">✅</div><div><div class="bn2">הנהלה</div><div class="bnote2">Jassy 8.5/10</div></div></div><div class="bi"><div class="bico">✅</div><div><div class="bn2">ROE >15%</div><div class="bnote2">22.3%</div></div></div><div class="bi"><div class="bico">⚠️</div><div><div class="bn2">שוליים</div><div class="bnote2">11% — עולה</div></div></div><div class="bi"><div class="bico">⚠️</div><div><div class="bn2">D/E</div><div class="bnote2">0.43 — בינוני</div></div></div><div class="bi"><div class="bico">❌</div><div><div class="bn2">FCF</div><div class="bnote2">$11B ↓CapEx</div></div></div><div class="bi"><div class="bico">⚠️</div><div><div class="bn2">תמחור</div><div class="bnote2">P/E 35x</div></div></div></div>
+ <div class="btot">
+  <div><div class="bscore" style="color:var(--amb)">5.5</div><div style="font-size:9px;color:var(--t3)">/ 9.0</div></div>
+  <div><div class="bstars">★★★☆☆</div><div class="bverd" style="color:var(--amb)">MIXED — Sum-of-Parts מצדיק</div></div>
+ </div>
+</div>
+
+<div class="panel hig">
+ <div class="sec"><span class="sb2" style="background:var(--grn)"></span>יתרונות תחרותיים</div>
+ <div class="ai"><div class="rd2" style="background:var(--grn)"></div><span>AWS Flywheel — 1,500+ services, switching cost 2-5 שנים</span></div><div class="ai"><div class="rd2" style="background:var(--grn)"></div><span>Logistics — 3K מחסנים, Same-day ל-75% ארה"ב</span></div><div class="ai"><div class="rd2" style="background:var(--grn)"></div><span>Advertising Closed-loop — יודעת מה קנית, CPM premium</span></div><div class="ai"><div class="rd2" style="background:var(--grn)"></div><span>Prime 200M+ members × $139 = Lock-in ecosystem</span></div>
+</div>
+
+<div class="panel hir">
+ <div class="sec"><span class="sb2" style="background:var(--red)"></span>סיכונים עיקריים</div>
+ <div class="ri"><div class="rd2" style="background:var(--red)"></div><span>CapEx $200B ROI לא מוכח — FCF מ-$38B ל-$11B</span></div><div class="ri"><div class="rd2" style="background:var(--red)"></div><span>Regulatory/FTC vs Amazon Marketplace</span></div><div class="ri"><div class="rd2" style="background:var(--red)"></div><span>AWS Deceleration — Azure+GCP צומחות מהר</span></div><div class="ri"><div class="rd2" style="background:var(--red)"></div><span>Current Ratio 1.05 — נזילות גבולית</span></div>
+</div>
+
+<div class="kpis"><div class="kpi"><div class="kl">FY25 הכנסות</div><div class="kv" style="color:#f5a623">$716.9B</div><div class="ks">+12%</div></div><div class="kpi"><div class="kl">AWS FY25</div><div class="kv" style="color:#f5a623">$128.7B</div><div class="ks">+20%</div></div><div class="kpi"><div class="kl">Op Income</div><div class="kv" style="color:#f5a623">$80B</div><div class="ks">11.2%</div></div><div class="kpi"><div class="kl">Advertising</div><div class="kv" style="color:#f5a623">$75B</div><div class="ks">+23%</div></div><div class="kpi"><div class="kl">EPS FY25</div><div class="kv" style="color:#f5a623">$8.05</div><div class="ks"></div></div><div class="kpi"><div class="kl">יעד avg</div><div class="kv" style="color:#f5a623">$291</div><div class="ks">72 Strong Buy</div></div></div>
+
+<div class="verd" style="background:var(--grn)0a;border-color:var(--grn)44">
+ <div class="vic">🟢</div>
+ <div>
+  <div class="vrec" style="color:var(--grn)">BUY — Sum-of-Parts $275-340</div>
+  <div class="vsub">Earnings 29 אפר׳: AWS guidance Q2. FCF recovery H2 2026. AWS AI ARR $15B→$25B. Prime Video Ads. יעד $291-320.</div>
+ </div>
+</div>
+
+<div style="background:var(--s3);border-radius:11px;padding:14px 17px;margin-top:11px">
+ <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:10px">
+  <div style="background:var(--s2);border-radius:7px;padding:9px;text-align:center"><div style="font-size:9px;color:var(--t3);margin-bottom:4px">כניסה</div><div style="font-family:var(--fm);font-weight:700;color:var(--grn);font-size:13px">$240–255</div></div>
+  <div style="background:var(--s2);border-radius:7px;padding:9px;text-align:center"><div style="font-size:9px;color:var(--t3);margin-bottom:4px">Stop Loss</div><div style="font-family:var(--fm);font-weight:700;color:var(--red);font-size:13px">$222</div></div>
+  <div style="background:var(--s2);border-radius:7px;padding:9px;text-align:center"><div style="font-size:9px;color:var(--t3);margin-bottom:4px">יעד 12M</div><div style="font-family:var(--fm);font-weight:700;color:#f5a623;font-size:13px">$291–320</div></div>
+  <div style="background:var(--s2);border-radius:7px;padding:9px;text-align:center"><div style="font-size:9px;color:var(--t3);margin-bottom:4px">פוזיציה</div><div style="font-family:var(--fm);font-weight:700;color:var(--amb);font-size:13px">12–15%</div></div>
+ </div>
+</div>
+</div>
+<div class="pg" id="pg-msft">
+<div class="hero" style="background:linear-gradient(135deg,#3d8bff0d,#3d8bff05)">
+ <div class="hl" style="background:#3d8bff"></div>
+ <div class="htop">
+  <div class="hl2">
+   <div class="hico" style="background:#3d8bff33;border:1px solid #3d8bff55;font-size:11px;font-weight:700;color:#3d8bff">MSFT</div>
+   <div>
+    <div class="htk2" style="background:#1b3a6b;color:#3d8bff">NASDAQ/NYSE: MSFT</div>
+    <div class="hn">Microsoft</div>
+    <div class="hd">Azure Cloud · Office 365 · Windows · LinkedIn · GitHub · Redmond WA · 1975 · 228K עובדים</div>
+    <div class="htags"><span class="tag" style="background:#3d8bff22;color:#3d8bff;border-color:#3d8bff44">Wide Moat 9.5/10</span><span class="tag" style="background:#e83c5a22;color:#e83c5a;border-color:#e83c5a44">▼24% מהשיא</span><span class="tag" style="background:#1fd15a22;color:#1fd15a;border-color:#1fd15a44">Azure +39% YoY</span><span class="tag" style="background:#f5a62322;color:#f5a623;border-color:#f5a62344">Backlog $625B</span></div>
+   </div>
+  </div>
+  <div class="hr2">
+   <div class="hpx" style="color:#3d8bff" id="hpx-MSFT">$422</div>
+   <div class="hch" style="color:var(--t2)">Cap: $3.14T · P/E Fwd 24x · Beta 1.11 · ROE 34.4%</div>
+  </div>
+ </div>
+ <div style="display:flex;align-items:center;gap:10px;margin-top:10px;padding:9px 13px;background:rgba(0,0,0,.25);border-radius:8px;flex-wrap:wrap">
+  <span style="font-size:11px;color:var(--t3)">מחיר עדכני:</span>
+  <span style="font-family:var(--fm);font-size:20px;font-weight:900;color:#3d8bff" id="pls-price-MSFT">$422</span>
+  <span style="font-family:var(--fm);font-size:11px;font-weight:700;padding:2px 8px;border-radius:5px" id="pls-chg-MSFT"></span>
+  <span style="font-size:9px;color:var(--t3);margin-right:auto" id="pls-time-MSFT">לחץ לרענון</span>
+  <button onclick="fetchSinglePrice('MSFT')" style="padding:4px 12px;border-radius:6px;font-size:10px;font-weight:700;cursor:pointer;border:1px solid #3d8bff44;background:#3d8bff11;color:#3d8bff;font-family:var(--fn)">🔄 רענן מחיר</button>
+ </div>
+ <div class="rlbl" style="margin-top:10px">52 WEEK RANGE — $355 → $555</div>
+ <div class="rrow"><span>$355</span><span style="color:#3d8bff">● $422</span><span>$555</span></div>
+ <div class="rtr"><div class="rg"></div><div class="rp" style="left:33%"></div></div>
+</div>
+
+<div class="g2">
+ <div class="panel">
+  <div class="sec"><span class="sb2" style="background:var(--grn)"></span>שולי רווח + תשואה</div>
+  <div class="mb"><div class="mbl">גולמי</div><div class="mbt"><div class="mbf" style="width:69%;background:#3d8bff"></div></div><div class="mbv" style="color:#3d8bff">69.4%</div></div><div class="mb"><div class="mbl">EBITDA</div><div class="mbt"><div class="mbf" style="width:57%;background:#3d8bff"></div></div><div class="mbv" style="color:#3d8bff">57.7%</div></div><div class="mb"><div class="mbl">תפעולי</div><div class="mbt"><div class="mbf" style="width:46%;background:#1fd15a"></div></div><div class="mbv" style="color:#1fd15a">46.7%</div></div><div class="mb"><div class="mbl">נקי</div><div class="mbt"><div class="mbf" style="width:39%;background:#1fd15a"></div></div><div class="mbv" style="color:#1fd15a">39.0%</div></div><div class="mb"><div class="mbl">FCF Margin</div><div class="mbt"><div class="mbf" style="width:25%;background:#f5a623"></div></div><div class="mbv" style="color:#f5a623">25.3%</div></div><div class="mb"><div class="mbl">ROE</div><div class="mbt"><div class="mbf" style="width:34%;background:#1fd15a"></div></div><div class="mbv" style="color:#1fd15a">34.4%</div></div>
+ </div>
+ <div class="panel">
+  <div class="sec"><span class="sb2" style="background:var(--amb)"></span>מאזן · D/E · FCF</div>
+  <div class="bs-g"><div class="bsi"><div class="bsl">מזומן</div><div class="bsv" style="color:var(--grn)">$94.6B</div></div><div class="bsi"><div class="bsl">LT Debt</div><div class="bsv" style="color:var(--grn)">~$50B</div></div><div class="bsi"><div class="bsl">D/E</div><div class="bsv" style="color:var(--grn)">0.15</div></div><div class="bsi"><div class="bsl">Net Cash</div><div class="bsv" style="color:var(--grn)">+$44B</div></div><div class="bsi"><div class="bsl">Total Assets</div><div class="bsv" style="color:var(--t2)">$619B</div></div><div class="bsi"><div class="bsl">Equity</div><div class="bsv" style="color:var(--t2)">$343B</div></div><div class="bsi"><div class="bsl">FCF TTM</div><div class="bsv" style="color:var(--grn)">$77.4B</div></div><div class="bsi"><div class="bsl">Backlog</div><div class="bsv" style="color:var(--blu)">$625B</div></div></div>
+ </div>
+</div>
+
+<div class="panel">
+ <div class="sec"><span class="sb2" style="background:var(--gold)"></span>הנהלה · מנכ"ל</div>
+ <div style="padding:10px 13px;background:var(--s3);border-radius:8px;font-size:12px;color:var(--t2);line-height:1.75"><strong style="color:var(--t1)">Satya Nadella — CEO 2014 · Hyderabad India · EE+CS+MBA · Microsoft מ-1992 · ציון 9.5/10</strong></div>
+</div>
+
+<div class="panel">
+ <div class="sec"><span class="sb2" style="background:var(--gold)"></span>הערכת שווי וורן באפט</div>
+ <div class="buff-g"><div class="bi"><div class="bico">✅</div><div><div class="bn2">עסק מובן</div><div class="bnote2">Office, Windows, Azure</div></div></div><div class="bi"><div class="bico">✅</div><div><div class="bn2">היסטוריה</div><div class="bnote2">50 שנה, רווחי כל שנה</div></div></div><div class="bi"><div class="bico">✅</div><div><div class="bn2">עתיד</div><div class="bnote2">Cloud+AI = 20 שנה</div></div></div><div class="bi"><div class="bico">✅</div><div><div class="bn2">הנהלה</div><div class="bnote2">Nadella 9.5/10</div></div></div><div class="bi"><div class="bico">✅</div><div><div class="bn2">ROE >15%</div><div class="bnote2">34.4%</div></div></div><div class="bi"><div class="bico">✅</div><div><div class="bn2">שוליים</div><div class="bnote2">39% נקי</div></div></div><div class="bi"><div class="bico">✅</div><div><div class="bn2">D/E נמוך</div><div class="bnote2">0.15 — Net Cash</div></div></div><div class="bi"><div class="bico">⚠️</div><div><div class="bn2">FCF</div><div class="bnote2">$77B ↓CapEx</div></div></div><div class="bi"><div class="bico">✅</div><div><div class="bn2">תמחור</div><div class="bnote2">P/E 24x Fwd ▼24%</div></div></div></div>
+ <div class="btot">
+  <div><div class="bscore" style="color:var(--grn)">7.4</div><div style="font-size:9px;color:var(--t3)">/ 9.0</div></div>
+  <div><div class="bstars">★★★★½</div><div class="bverd" style="color:var(--grn)">PASS — Buffett Quality Stock</div></div>
+ </div>
+</div>
+
+<div class="panel hig">
+ <div class="sec"><span class="sb2" style="background:var(--grn)"></span>יתרונות תחרותיים</div>
+ <div class="ai"><div class="rd2" style="background:var(--grn)"></div><span>Lock-in — Teams+SharePoint+Azure AD, switching cost גבוה</span></div><div class="ai"><div class="rd2" style="background:var(--grn)"></div><span>Network Effects — LinkedIn 950M, GitHub 100M</span></div><div class="ai"><div class="rd2" style="background:var(--grn)"></div><span>Scale — 73% Windows, 60+ Azure regions, Copilot $30/user</span></div><div class="ai"><div class="rd2" style="background:var(--grn)"></div><span>OpenAI 49% — $13B investment = $100B+ value</span></div>
+</div>
+
+<div class="panel hir">
+ <div class="sec"><span class="sb2" style="background:var(--red)"></span>סיכונים עיקריים</div>
+ <div class="ri"><div class="rd2" style="background:var(--red)"></div><span>CapEx $94B FY26 ROI לא מוכח</span></div><div class="ri"><div class="rd2" style="background:var(--red)"></div><span>OpenAI concentration — 40% מ-Backlog $625B</span></div><div class="ri"><div class="rd2" style="background:var(--red)"></div><span>Azure deceleration — ירידה מ-40% ל-39% = עניישה</span></div><div class="ri"><div class="rd2" style="background:var(--red)"></div><span>EU DMA + Antitrust investigations</span></div>
+</div>
+
+<div class="kpis"><div class="kpi"><div class="kl">Q2 FY26</div><div class="kv" style="color:#3d8bff">$81.3B</div><div class="ks">+17%</div></div><div class="kpi"><div class="kl">EPS Q2</div><div class="kv" style="color:#3d8bff">$4.14</div><div class="ks">+24% Beat</div></div><div class="kpi"><div class="kl">Azure</div><div class="kv" style="color:#3d8bff">+39%</div><div class="ks">Q2 FY26</div></div><div class="kpi"><div class="kl">FCF TTM</div><div class="kv" style="color:#3d8bff">$77.4B</div><div class="ks">25.3% margin</div></div><div class="kpi"><div class="kl">Copilot</div><div class="kv" style="color:#3d8bff">15M seats</div><div class="ks">+160%</div></div><div class="kpi"><div class="kl">יעד</div><div class="kv" style="color:#3d8bff">$590</div><div class="ks">41/49 Strong Buy</div></div></div>
+
+<div class="verd" style="background:var(--grn)0a;border-color:var(--grn)44">
+ <div class="vic">🟢</div>
+ <div>
+  <div class="vrec" style="color:var(--grn)">BUY — Buffett 7.4/9 · ▼24% Discount</div>
+  <div class="vsub">▼24% מהשיא = discount על עסק $3T. Azure AI → $25B. Backlog $625B = נראות 2-3 שנים. Earnings 29 אפר׳.</div>
+ </div>
+</div>
+
+<div style="background:var(--s3);border-radius:11px;padding:14px 17px;margin-top:11px">
+ <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:10px">
+  <div style="background:var(--s2);border-radius:7px;padding:9px;text-align:center"><div style="font-size:9px;color:var(--t3);margin-bottom:4px">כניסה</div><div style="font-family:var(--fm);font-weight:700;color:var(--grn);font-size:13px">$400–430</div></div>
+  <div style="background:var(--s2);border-radius:7px;padding:9px;text-align:center"><div style="font-size:9px;color:var(--t3);margin-bottom:4px">Stop Loss</div><div style="font-family:var(--fm);font-weight:700;color:var(--red);font-size:13px">$388</div></div>
+  <div style="background:var(--s2);border-radius:7px;padding:9px;text-align:center"><div style="font-size:9px;color:var(--t3);margin-bottom:4px">יעד 12M</div><div style="font-family:var(--fm);font-weight:700;color:#3d8bff;font-size:13px">$550–590</div></div>
+  <div style="background:var(--s2);border-radius:7px;padding:9px;text-align:center"><div style="font-size:9px;color:var(--t3);margin-bottom:4px">פוזיציה</div><div style="font-family:var(--fm);font-weight:700;color:var(--amb);font-size:13px">15–20%</div></div>
+ </div>
+</div>
+</div>
+<div class="pg" id="pg-meta">
+<div class="hero" style="background:linear-gradient(135deg,#3d8bff0d,#3d8bff05)">
+ <div class="hl" style="background:#3d8bff"></div>
+ <div class="htop">
+  <div class="hl2">
+   <div class="hico" style="background:#3d8bff33;border:1px solid #3d8bff55;font-size:11px;font-weight:700;color:#3d8bff">META</div>
+   <div>
+    <div class="htk2" style="background:#13204a;color:#3d8bff">NASDAQ/NYSE: META</div>
+    <div class="hn">Meta</div>
+    <div class="hd">Facebook · Instagram · WhatsApp · Threads · Reality Labs · Menlo Park CA · 2004 · 78.8K עובדים</div>
+    <div class="htags"><span class="tag" style="background:#1fd15a22;color:#1fd15a;border-color:#1fd15a44">Wide Moat 9.7/10</span><span class="tag" style="background:#3d8bff22;color:#3d8bff;border-color:#3d8bff44">3.58B DAP</span><span class="tag" style="background:#f5a62322;color:#f5a623;border-color:#f5a62344">Op Margin 41%</span><span class="tag" style="background:#a855f722;color:#a855f7;border-color:#a855f744">PEG 0.94!</span></div>
+   </div>
+  </div>
+  <div class="hr2">
+   <div class="hpx" style="color:#3d8bff" id="hpx-META">$662</div>
+   <div class="hch" style="color:var(--t2)">Cap: $1.67T · P/E Fwd 20.9x · PEG 0.94 · ROE 30.2%</div>
+  </div>
+ </div>
+ <div style="display:flex;align-items:center;gap:10px;margin-top:10px;padding:9px 13px;background:rgba(0,0,0,.25);border-radius:8px;flex-wrap:wrap">
+  <span style="font-size:11px;color:var(--t3)">מחיר עדכני:</span>
+  <span style="font-family:var(--fm);font-size:20px;font-weight:900;color:#3d8bff" id="pls-price-META">$662</span>
+  <span style="font-family:var(--fm);font-size:11px;font-weight:700;padding:2px 8px;border-radius:5px" id="pls-chg-META"></span>
+  <span style="font-size:9px;color:var(--t3);margin-right:auto" id="pls-time-META">לחץ לרענון</span>
+  <button onclick="fetchSinglePrice('META')" style="padding:4px 12px;border-radius:6px;font-size:10px;font-weight:700;cursor:pointer;border:1px solid #3d8bff44;background:#3d8bff11;color:#3d8bff;font-family:var(--fn)">🔄 רענן מחיר</button>
+ </div>
+ <div class="rlbl" style="margin-top:10px">52 WEEK RANGE — $479 → $796</div>
+ <div class="rrow"><span>$479</span><span style="color:#3d8bff">● $662</span><span>$796</span></div>
+ <div class="rtr"><div class="rg"></div><div class="rp" style="left:61%"></div></div>
+</div>
+
+<div class="g2">
+ <div class="panel">
+  <div class="sec"><span class="sb2" style="background:var(--grn)"></span>שולי רווח + תשואה</div>
+  <div class="mb"><div class="mbl">גולמי (Apps)</div><div class="mbt"><div class="mbf" style="width:82%;background:#3d8bff"></div></div><div class="mbv" style="color:#3d8bff">82%</div></div><div class="mb"><div class="mbl">תפעולי Q4</div><div class="mbt"><div class="mbf" style="width:41%;background:#1fd15a"></div></div><div class="mbv" style="color:#1fd15a">41%</div></div><div class="mb"><div class="mbl">נקי</div><div class="mbt"><div class="mbf" style="width:22%;background:#1fd15a"></div></div><div class="mbv" style="color:#1fd15a">22.5%</div></div><div class="mb"><div class="mbl">FCF Margin</div><div class="mbt"><div class="mbf" style="width:23%;background:#f5a623"></div></div><div class="mbv" style="color:#f5a623">22.9%</div></div><div class="mb"><div class="mbl">ROE</div><div class="mbt"><div class="mbf" style="width:30%;background:#1fd15a"></div></div><div class="mbv" style="color:#1fd15a">30.2%</div></div><div class="mb"><div class="mbl">ROIC</div><div class="mbt"><div class="mbf" style="width:27%;background:#1fd15a"></div></div><div class="mbv" style="color:#1fd15a">27.8%</div></div>
+ </div>
+ <div class="panel">
+  <div class="sec"><span class="sb2" style="background:var(--amb)"></span>מאזן · D/E · FCF</div>
+  <div class="bs-g"><div class="bsi"><div class="bsl">מזומן</div><div class="bsv" style="color:var(--grn)">$81.6B</div></div><div class="bsi"><div class="bsl">חוב</div><div class="bsv" style="color:var(--grn)">$58.7B</div></div><div class="bsi"><div class="bsl">D/E</div><div class="bsv" style="color:var(--grn)">0.39</div></div><div class="bsi"><div class="bsl">Net Cash</div><div class="bsv" style="color:var(--grn)">+$22.9B</div></div><div class="bsi"><div class="bsl">FCF FY25</div><div class="bsv" style="color:var(--grn)">$46.1B</div></div><div class="bsi"><div class="bsl">OCF</div><div class="bsv" style="color:var(--grn)">$115.8B</div></div><div class="bsi"><div class="bsl">Current Ratio</div><div class="bsv" style="color:var(--grn)">2.60</div></div><div class="bsi"><div class="bsl">EV/EBITDA</div><div class="bsv" style="color:var(--grn)">15.6x</div></div></div>
+ </div>
+</div>
+
+<div class="panel">
+ <div class="sec"><span class="sb2" style="background:var(--gold)"></span>הנהלה · מנכ"ל</div>
+ <div style="padding:10px 13px;background:var(--s3);border-radius:8px;font-size:12px;color:var(--t2);line-height:1.75"><strong style="color:var(--t1)">Mark Zuckerberg — Co-Founder CEO 2004 · Harvard dropout · Class B 61% הצבעה · ציון 8.5/10</strong></div>
+</div>
+
+<div class="panel">
+ <div class="sec"><span class="sb2" style="background:var(--gold)"></span>הערכת שווי וורן באפט</div>
+ <div class="buff-g"><div class="bi"><div class="bico">✅</div><div><div class="bn2">עסק מובן</div><div class="bnote2">פרסום = פשוט ומוכח</div></div></div><div class="bi"><div class="bico">✅</div><div><div class="bn2">היסטוריה</div><div class="bnote2">20 שנה, resilient</div></div></div><div class="bi"><div class="bico">✅</div><div><div class="bn2">עתיד</div><div class="bnote2">AI Ads + new revenues</div></div></div><div class="bi"><div class="bico">✅</div><div><div class="bn2">הנהלה</div><div class="bnote2">Zuck 8.5/10</div></div></div><div class="bi"><div class="bico">✅</div><div><div class="bn2">ROE >15%</div><div class="bnote2">30.2%</div></div></div><div class="bi"><div class="bico">✅</div><div><div class="bn2">שוליים</div><div class="bnote2">41% Op Margin</div></div></div><div class="bi"><div class="bico">✅</div><div><div class="bn2">D/E נמוך</div><div class="bnote2">0.39 — Net Cash +$22.9B</div></div></div><div class="bi"><div class="bico">⚠️</div><div><div class="bn2">FCF</div><div class="bnote2">$46B ↓CapEx $115B</div></div></div><div class="bi"><div class="bico">✅</div><div><div class="bn2">תמחור</div><div class="bnote2">PEG 0.94!</div></div></div></div>
+ <div class="btot">
+  <div><div class="bscore" style="color:var(--grn)">8.0</div><div style="font-size:9px;color:var(--t3)">/ 9.0</div></div>
+  <div><div class="bstars">★★★★★</div><div class="bverd" style="color:var(--grn)">STRONG PASS — Best Idea בתיק</div></div>
+ </div>
+</div>
+
+<div class="panel hig">
+ <div class="sec"><span class="sb2" style="background:var(--grn)"></span>יתרונות תחרותיים</div>
+ <div class="ai"><div class="rd2" style="background:var(--grn)"></div><span>Network Effect — WhatsApp+Instagram+Facebook לא ניתן לעזוב</span></div><div class="ai"><div class="rd2" style="background:var(--grn)"></div><span>Advantage+ AI Flywheel — $60B ARR, self-reinforcing loop</span></div><div class="ai"><div class="rd2" style="background:var(--grn)"></div><span>MTIA Custom Chip — 2nm, independence מ-Nvidia</span></div><div class="ai"><div class="rd2" style="background:var(--grn)"></div><span>3 Platforms — FB+IG+WA = שלושה revenue streams בו-זמנית</span></div>
+</div>
+
+<div class="panel hir">
+ <div class="sec"><span class="sb2" style="background:var(--red)"></span>סיכונים עיקריים</div>
+ <div class="ri"><div class="rd2" style="background:var(--red)"></div><span>EU DMA — EU revenue ~25%, targeting limited</span></div><div class="ri"><div class="rd2" style="background:var(--red)"></div><span>CapEx $115-135B 2026 — FCF עלול לרדת ל-$30-35B</span></div><div class="ri"><div class="rd2" style="background:var(--red)"></div><span>Reality Labs הפסד $6B/Q — $83B מצטבר</span></div><div class="ri"><div class="rd2" style="background:var(--red)"></div><span>97% Ad Concentration — מיתון = חשיפה</span></div>
+</div>
+
+<div class="kpis"><div class="kpi"><div class="kl">הכנסות Q4 2025</div><div class="kv" style="color:#3d8bff">$59.9B</div><div class="ks">+24%</div></div><div class="kpi"><div class="kl">FY25</div><div class="kv" style="color:#3d8bff">$201B</div><div class="ks">+22%</div></div><div class="kpi"><div class="kl">EPS Q4</div><div class="kv" style="color:#3d8bff">$8.88</div><div class="ks">+11% Beat</div></div><div class="kpi"><div class="kl">DAP</div><div class="kv" style="color:#3d8bff">3.58B</div><div class="ks">+7%</div></div><div class="kpi"><div class="kl">Net Cash</div><div class="kv" style="color:#3d8bff">+$22.9B</div><div class="ks">D/E 0.39</div></div><div class="kpi"><div class="kl">יעד</div><div class="kv" style="color:#3d8bff">$855</div><div class="ks">+29% upside</div></div></div>
+
+<div class="verd" style="background:var(--grn)0a;border-color:var(--grn)44">
+ <div class="vic">🟢</div>
+ <div>
+  <div class="vrec" style="color:var(--grn)">STRONG BUY — Best Idea · Buffett 8.0/9 · PEG 0.94</div>
+  <div class="vsub">PEG 0.94 = הזדמנות נדירה. Earnings 29 אפר׳: EPS $6.63, Rev ~$55B. Beat + guidance = $720-750 מיידי.</div>
+ </div>
+</div>
+
+<div style="background:var(--s3);border-radius:11px;padding:14px 17px;margin-top:11px">
+ <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:10px">
+  <div style="background:var(--s2);border-radius:7px;padding:9px;text-align:center"><div style="font-size:9px;color:var(--t3);margin-bottom:4px">כניסה</div><div style="font-family:var(--fm);font-weight:700;color:var(--grn);font-size:13px">$650–670</div></div>
+  <div style="background:var(--s2);border-radius:7px;padding:9px;text-align:center"><div style="font-size:9px;color:var(--t3);margin-bottom:4px">Stop Loss</div><div style="font-family:var(--fm);font-weight:700;color:var(--red);font-size:13px">$580</div></div>
+  <div style="background:var(--s2);border-radius:7px;padding:9px;text-align:center"><div style="font-size:9px;color:var(--t3);margin-bottom:4px">יעד 12M</div><div style="font-family:var(--fm);font-weight:700;color:#3d8bff;font-size:13px">$838–856</div></div>
+  <div style="background:var(--s2);border-radius:7px;padding:9px;text-align:center"><div style="font-size:9px;color:var(--t3);margin-bottom:4px">פוזיציה</div><div style="font-family:var(--fm);font-weight:700;color:var(--amb);font-size:13px">20–25%</div></div>
+ </div>
+</div>
+</div>
+<div class="pg" id="pg-ibit">
+<div class="hero" style="background:linear-gradient(135deg,#f5c8420d,#f5c84205)">
+ <div class="hl" style="background:#f5c842"></div>
+ <div class="htop">
+  <div class="hl2">
+   <div class="hico" style="background:#f5c84233;border:1px solid #f5c84255;font-size:11px;font-weight:700;color:#f5c842">IBIT</div>
+   <div>
+    <div class="htk2" style="background:#3a2700;color:#f5c842">NASDAQ/NYSE: IBIT</div>
+    <div class="hn">Bitcoin ETF</div>
+    <div class="hd">iShares Bitcoin Trust ETF · BlackRock #1 Asset Manager $10T AUM · Custody Coinbase Prime · NYSE</div>
+    <div class="htags"><span class="tag" style="background:#f5c84222;color:#f5c842;border-color:#f5c84244">#1 Bitcoin ETF עולמי</span><span class="tag" style="background:#1fd15a22;color:#1fd15a;border-color:#1fd15a44">AUM $63B</span><span class="tag" style="background:#3d8bff22;color:#3d8bff;border-color:#3d8bff44">Halving Cycle 50%</span><span class="tag" style="background:#e83c5a22;color:#e83c5a;border-color:#e83c5a44">BTC ▼40% מ-ATH</span></div>
+   </div>
+  </div>
+  <div class="hr2">
+   <div class="hpx" style="color:#f5c842" id="hpx-IBIT">$44</div>
+   <div class="hch" style="color:var(--t2)">AUM: $63B · ~574K BTC מוחזק · Expense 0.25% · Beta ~1.8 vs S&P</div>
+  </div>
+ </div>
+ <div style="display:flex;align-items:center;gap:10px;margin-top:10px;padding:9px 13px;background:rgba(0,0,0,.25);border-radius:8px;flex-wrap:wrap">
+  <span style="font-size:11px;color:var(--t3)">מחיר עדכני:</span>
+  <span style="font-family:var(--fm);font-size:20px;font-weight:900;color:#f5c842" id="pls-price-IBIT">$44</span>
+  <span style="font-family:var(--fm);font-size:11px;font-weight:700;padding:2px 8px;border-radius:5px" id="pls-chg-IBIT"></span>
+  <span style="font-size:9px;color:var(--t3);margin-right:auto" id="pls-time-IBIT">לחץ לרענון</span>
+  <button onclick="fetchSinglePrice('IBIT')" style="padding:4px 12px;border-radius:6px;font-size:10px;font-weight:700;cursor:pointer;border:1px solid #f5c84244;background:#f5c84211;color:#f5c842;font-family:var(--fn)">🔄 רענן מחיר</button>
+ </div>
+ <div class="rlbl" style="margin-top:10px">52 WEEK RANGE — $35.30 → $71.82</div>
+ <div class="rrow"><span>$35.30</span><span style="color:#f5c842">● $44</span><span>$71.82</span></div>
+ <div class="rtr"><div class="rg"></div><div class="rp" style="left:38%"></div></div>
+</div>
+
+<div class="g2">
+ <div class="panel">
+  <div class="sec"><span class="sb2" style="background:var(--grn)"></span>שולי רווח + תשואה</div>
+  <div class="mb"><div class="mbl">AUM Growth</div><div class="mbt"><div class="mbf" style="width:80%;background:#grn"></div></div><div class="mbv" style="color:#grn">$0→$63B</div></div><div class="mb"><div class="mbl">BTC vs ATH</div><div class="mbt"><div class="mbf" style="width:40%;background:#red"></div></div><div class="mbv" style="color:#red">▼40%</div></div><div class="mb"><div class="mbl">Halving Progress</div><div class="mbt"><div class="mbf" style="width:50%;background:#f5c842"></div></div><div class="mbv" style="color:#f5c842">50.84%</div></div><div class="mb"><div class="mbl">Expense vs GBTC</div><div class="mbt"><div class="mbf" style="width:20%;background:#grn"></div></div><div class="mbv" style="color:#grn">0.25% vs 1.5%</div></div>
+ </div>
+ <div class="panel">
+  <div class="sec"><span class="sb2" style="background:var(--amb)"></span>מאזן · D/E · FCF</div>
+  <div class="bs-g"><div class="bsi"><div class="bsl">NAV</div><div class="bsv" style="color:var(--gold)">~$44</div></div><div class="bsi"><div class="bsl">AUM</div><div class="bsv" style="color:var(--grn)">$63B</div></div><div class="bsi"><div class="bsl">BTC מוחזק</div><div class="bsv" style="color:var(--gold)">~574K</div></div><div class="bsi"><div class="bsl">Expense</div><div class="bsv" style="color:var(--grn)">0.25%</div></div><div class="bsi"><div class="bsl">BTC נוכחי</div><div class="bsv" style="color:var(--gold)">~$76K</div></div><div class="bsi"><div class="bsl">BTC ATH</div><div class="bsv" style="color:var(--red)">$126,198</div></div><div class="bsi"><div class="bsl">Halving</div><div class="bsv" style="color:var(--grn)">50.84%</div></div><div class="bsi"><div class="bsl">Next Halving</div><div class="bsv" style="color:var(--t2)">אפר׳ 2028</div></div></div>
+ </div>
+</div>
+
+<div class="panel">
+ <div class="sec"><span class="sb2" style="background:var(--gold)"></span>הנהלה · מנכ"ל</div>
+ <div style="padding:10px 13px;background:var(--s3);border-radius:8px;font-size:12px;color:var(--t2);line-height:1.75"><strong style="color:var(--t1)">BlackRock / Larry Fink — #1 Asset Manager $10T AUM · IBIT: $50B ב-11 חודשים = שיא היסטורי</strong></div>
+</div>
+
+<div class="panel">
+ <div class="sec"><span class="sb2" style="background:var(--gold)"></span>הערכת שווי וורן באפט</div>
+ <div class="buff-g"><div class="bi"><div class="bico">❌</div><div><div class="bn2">עסק מובן</div><div class="bnote2">Buffett: rat poison</div></div></div><div class="bi"><div class="bico">⚠️</div><div><div class="bn2">היסטוריה</div><div class="bnote2">4 cycles, beat ATH כל פעם</div></div></div><div class="bi"><div class="bico">⚠️</div><div><div class="bn2">עתיד</div><div class="bnote2">ספקולטיבי</div></div></div><div class="bi"><div class="bico">⚠️</div><div><div class="bn2">הנהלה</div><div class="bnote2">BlackRock A+</div></div></div><div class="bi"><div class="bico">❌</div><div><div class="bn2">ROE</div><div class="bnote2">N/A</div></div></div><div class="bi"><div class="bico">❌</div><div><div class="bn2">שוליים</div><div class="bnote2">N/A</div></div></div><div class="bi"><div class="bico">✅</div><div><div class="bn2">D/E</div><div class="bnote2">0 חוב</div></div></div><div class="bi"><div class="bico">❌</div><div><div class="bn2">FCF</div><div class="bnote2">N/A</div></div></div><div class="bi"><div class="bico">⚠️</div><div><div class="bn2">תמחור</div><div class="bnote2">Cycle-based</div></div></div></div>
+ <div class="btot">
+  <div><div class="bscore" style="color:var(--amb)">2.5</div><div style="font-size:9px;color:var(--t3)">/ 9.0</div></div>
+  <div><div class="bstars">★★☆☆☆</div><div class="bverd" style="color:var(--amb)">NOT Buffett — Digital Gold נכס שונה</div></div>
+ </div>
+</div>
+
+<div class="panel hig">
+ <div class="sec"><span class="sb2" style="background:var(--grn)"></span>יתרונות תחרותיים</div>
+ <div class="ai"><div class="rd2" style="background:var(--grn)"></div><span>BlackRock Institutional Legitimacy — $10T AUM brand</span></div><div class="ai"><div class="rd2" style="background:var(--grn)"></div><span>Halving Scarcity — 3.125 BTC/block, inflation <1%</span></div><div class="ai"><div class="rd2" style="background:var(--grn)"></div><span>Digital Gold Narrative — inflation+debasement hedge</span></div><div class="ai"><div class="rd2" style="background:var(--grn)"></div><span>NYSE Listed — IRA eligible, no custody risk</span></div>
+</div>
+
+<div class="panel hir">
+ <div class="sec"><span class="sb2" style="background:var(--red)"></span>סיכונים עיקריים</div>
+ <div class="ri"><div class="rd2" style="background:var(--red)"></div><span>▼40% מ-ATH $126K — cycle מתון vs +300-1000% קודם</span></div><div class="ri"><div class="rd2" style="background:var(--red)"></div><span>Beta ~1.8 — amplified drawdowns vs S&P</span></div><div class="ri"><div class="rd2" style="background:var(--red)"></div><span>Regulatory — global ban scenario (low prob, high impact)</span></div><div class="ri"><div class="rd2" style="background:var(--red)"></div><span>Miner selling — post-halving revenue cut 50%</span></div>
+</div>
+
+<div class="kpis"><div class="kpi"><div class="kl">IBIT</div><div class="kv" style="color:#f5c842">$44</div><div class="ks">May 2026</div></div><div class="kpi"><div class="kl">BTC</div><div class="kv" style="color:#f5c842">~$76K</div><div class="ks"></div></div><div class="kpi"><div class="kl">AUM</div><div class="kv" style="color:#f5c842">$63B</div><div class="ks">#1 ETF</div></div><div class="kpi"><div class="kl">Expense</div><div class="kv" style="color:#f5c842">0.25%</div><div class="ks"></div></div><div class="kpi"><div class="kl">Halving</div><div class="kv" style="color:#f5c842">50.84%</div><div class="ks"></div></div><div class="kpi"><div class="kl">יעד מוסדי</div><div class="kv" style="color:#f5c842">$150-250K</div><div class="ks">Standard Chartered</div></div></div>
+
+<div class="verd" style="background:var(--amb)0a;border-color:var(--amb)44">
+ <div class="vic">🟢</div>
+ <div>
+  <div class="vrec" style="color:var(--amb)">HOLD / BUY ON DIPS — Halving Cycle Play</div>
+  <div class="vsub">Halving 50% complete. BTC $76K vs ATH $126K. Institutional ETF demand. Accumulate dips $38-48. יעד $65-90.</div>
+ </div>
+</div>
+
+<div style="background:var(--s3);border-radius:11px;padding:14px 17px;margin-top:11px">
+ <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:10px">
+  <div style="background:var(--s2);border-radius:7px;padding:9px;text-align:center"><div style="font-size:9px;color:var(--t3);margin-bottom:4px">כניסה</div><div style="font-family:var(--fm);font-weight:700;color:var(--grn);font-size:13px">$38–48</div></div>
+  <div style="background:var(--s2);border-radius:7px;padding:9px;text-align:center"><div style="font-size:9px;color:var(--t3);margin-bottom:4px">Stop Loss</div><div style="font-family:var(--fm);font-weight:700;color:var(--red);font-size:13px">$30</div></div>
+  <div style="background:var(--s2);border-radius:7px;padding:9px;text-align:center"><div style="font-size:9px;color:var(--t3);margin-bottom:4px">יעד 12M</div><div style="font-family:var(--fm);font-weight:700;color:#f5c842;font-size:13px">$65–90</div></div>
+  <div style="background:var(--s2);border-radius:7px;padding:9px;text-align:center"><div style="font-size:9px;color:var(--t3);margin-bottom:4px">פוזיציה</div><div style="font-family:var(--fm);font-weight:700;color:var(--amb);font-size:13px">5–10%</div></div>
+ </div>
+</div>
+</div>
+<div class="pg" id="pg-vcx">
+<div class="hero" style="background:linear-gradient(135deg,#a855f70d,#a855f705)">
+ <div class="hl" style="background:#a855f7"></div>
+ <div class="htop">
+  <div class="hl2">
+   <div class="hico" style="background:#a855f733;border:1px solid #a855f755;font-size:11px;font-weight:700;color:#a855f7">VCX</div>
+   <div>
+    <div class="htk2" style="background:#1a1a3a;color:#a855f7">NASDAQ/NYSE: VCX</div>
+    <div class="hn">Fundrise VC</div>
+    <div class="hd">Fundrise Innovation Fund · Publicly Traded VC Fund · Late-Stage Private Tech · Washington DC</div>
+    <div class="htags"><span class="tag" style="background:#a855f722;color:#a855f7;border-color:#a855f744">Anthropic+OpenAI+SpaceX</span><span class="tag" style="background:#1fd15a22;color:#1fd15a;border-color:#1fd15a44">+22% שנה</span><span class="tag" style="background:#3d8bff22;color:#3d8bff;border-color:#3d8bff44">28 חברות פרטיות</span><span class="tag" style="background:#e83c5a22;color:#e83c5a;border-color:#e83c5a44">NAV Self-Reported</span></div>
+   </div>
+  </div>
+  <div class="hr2">
+   <div class="hpx" style="color:#a855f7" id="hpx-VCX">$89</div>
+   <div class="hch" style="color:var(--t2)">AUM: $2.4B · NAV ~$89 · Dividend 0.2% · NYSE Listed</div>
+  </div>
+ </div>
+ <div style="display:flex;align-items:center;gap:10px;margin-top:10px;padding:9px 13px;background:rgba(0,0,0,.25);border-radius:8px;flex-wrap:wrap">
+  <span style="font-size:11px;color:var(--t3)">מחיר עדכני:</span>
+  <span style="font-family:var(--fm);font-size:20px;font-weight:900;color:#a855f7" id="pls-price-VCX">$89</span>
+  <span style="font-family:var(--fm);font-size:11px;font-weight:700;padding:2px 8px;border-radius:5px" id="pls-chg-VCX"></span>
+  <span style="font-size:9px;color:var(--t3);margin-right:auto" id="pls-time-VCX">לחץ לרענון</span>
+  <button onclick="fetchSinglePrice('VCX')" style="padding:4px 12px;border-radius:6px;font-size:10px;font-weight:700;cursor:pointer;border:1px solid #a855f744;background:#a855f711;color:#a855f7;font-family:var(--fn)">🔄 רענן מחיר</button>
+ </div>
+ <div class="rlbl" style="margin-top:10px">52 WEEK RANGE — ~$72 → ~$95</div>
+ <div class="rrow"><span>~$72</span><span style="color:#a855f7">● $89</span><span>~$95</span></div>
+ <div class="rtr"><div class="rg"></div><div class="rp" style="left:71%"></div></div>
+</div>
+
+<div class="g2">
+ <div class="panel">
+  <div class="sec"><span class="sb2" style="background:var(--grn)"></span>שולי רווח + תשואה</div>
+  <div class="mb"><div class="mbl">ביצועים שנה</div><div class="mbt"><div class="mbf" style="width:22%;background:#a855f7"></div></div><div class="mbv" style="color:#a855f7">+22%</div></div><div class="mb"><div class="mbl">Anthropic Value</div><div class="mbt"><div class="mbf" style="width:60%;background:#amb"></div></div><div class="mbv" style="color:#amb">$61B</div></div><div class="mb"><div class="mbl">OpenAI Value</div><div class="mbt"><div class="mbf" style="width:80%;background:#amb"></div></div><div class="mbv" style="color:#amb">$300B+</div></div><div class="mb"><div class="mbl">Dividend</div><div class="mbt"><div class="mbf" style="width:1%;background:#t3"></div></div><div class="mbv" style="color:#t3">0.2%</div></div>
+ </div>
+ <div class="panel">
+  <div class="sec"><span class="sb2" style="background:var(--amb)"></span>מאזן · D/E · FCF</div>
+  <div class="bs-g"><div class="bsi"><div class="bsl">NAV</div><div class="bsv" style="color:var(--pur)">~$89</div></div><div class="bsi"><div class="bsl">AUM</div><div class="bsv" style="color:var(--grn)">$2.4B</div></div><div class="bsi"><div class="bsl">Holdings</div><div class="bsv" style="color:var(--pur)">28 חברות</div></div><div class="bsi"><div class="bsl">ביצועים שנה</div><div class="bsv" style="color:var(--grn)">+22%</div></div><div class="bsi"><div class="bsl">Anthropic</div><div class="bsv" style="color:var(--amb)">$61B</div></div><div class="bsi"><div class="bsl">OpenAI</div><div class="bsv" style="color:var(--amb)">$300B+</div></div><div class="bsi"><div class="bsl">Dividend</div><div class="bsv" style="color:var(--t3)">0.2%</div></div><div class="bsi"><div class="bsl">Erebor Bank</div><div class="bsv" style="color:#06b6d4">אפר׳ 2026</div></div></div>
+ </div>
+</div>
+
+<div class="panel">
+ <div class="sec"><span class="sb2" style="background:var(--gold)"></span>הנהלה · מנכ"ל</div>
+ <div style="padding:10px 13px;background:var(--s3);border-radius:8px;font-size:12px;color:var(--t2);line-height:1.75"><strong style="color:var(--t1)">Fundrise / Ben Miller — Co-Founder CEO · Pioneer קמעונאי crowdfunding · $3B+ AUM total</strong></div>
+</div>
+
+<div class="panel">
+ <div class="sec"><span class="sb2" style="background:var(--gold)"></span>הערכת שווי וורן באפט</div>
+ <div class="buff-g"><div class="bi"><div class="bico">❌</div><div><div class="bn2">עסק מובן</div><div class="bnote2">28 private cos, opaque</div></div></div><div class="bi"><div class="bico">⚠️</div><div><div class="bn2">היסטוריה</div><div class="bnote2">2 שנים בלבד</div></div></div><div class="bi"><div class="bico">✅</div><div><div class="bn2">עתיד</div><div class="bnote2">AI = עתיד</div></div></div><div class="bi"><div class="bico">⚠️</div><div><div class="bn2">הנהלה</div><div class="bnote2">ניגוד עניינים NAV</div></div></div><div class="bi"><div class="bico">❌</div><div><div class="bn2">ROE</div><div class="bnote2">N/A Fund</div></div></div><div class="bi"><div class="bico">❌</div><div><div class="bn2">שוליים</div><div class="bnote2">N/A</div></div></div><div class="bi"><div class="bico">✅</div><div><div class="bn2">D/E</div><div class="bnote2">0 חוב</div></div></div><div class="bi"><div class="bico">❌</div><div><div class="bn2">FCF</div><div class="bnote2">N/A</div></div></div><div class="bi"><div class="bico">⚠️</div><div><div class="bn2">תמחור</div><div class="bnote2">NAV self-reported</div></div></div></div>
+ <div class="btot">
+  <div><div class="bscore" style="color:var(--pur)">2.5</div><div style="font-size:9px;color:var(--t3)">/ 9.0</div></div>
+  <div><div class="bstars">★★☆☆☆</div><div class="bverd" style="color:var(--pur)">NOT Buffett — Pure VC Speculation</div></div>
+ </div>
+</div>
+
+<div class="panel hig">
+ <div class="sec"><span class="sb2" style="background:var(--grn)"></span>יתרונות תחרותיים</div>
+ <div class="ai"><div class="rd2" style="background:var(--grn)"></div><span>גישה ייחודית Pre-IPO — Anthropic+OpenAI+SpaceX לפני IPO</span></div><div class="ai"><div class="rd2" style="background:var(--grn)"></div><span>IPO Catalyst Pipeline — Databricks מתוכנן</span></div><div class="ai"><div class="rd2" style="background:var(--grn)"></div><span>NYSE Listed — נזיל, אין accredited requirement</span></div><div class="ai"><div class="rd2" style="background:var(--grn)"></div><span>AI Decade Exposure — 28 חברות AI+BioTech+FinTech</span></div>
+</div>
+
+<div class="panel hir">
+ <div class="sec"><span class="sb2" style="background:var(--red)"></span>סיכונים עיקריים</div>
+ <div class="ri"><div class="rd2" style="background:var(--red)"></div><span>NAV self-reported — ניגוד עניינים מבני</span></div><div class="ri"><div class="rd2" style="background:var(--red)"></div><span>IPO Risk — down-round אפשרי</span></div><div class="ri"><div class="rd2" style="background:var(--red)"></div><span>AI Valuations גבוהות — OpenAI $300B על $4B revenue</span></div><div class="ri"><div class="rd2" style="background:var(--red)"></div><span>Volume נמוך — thin market, wide spread</span></div>
+</div>
+
+<div class="kpis"><div class="kpi"><div class="kl">מחיר</div><div class="kv" style="color:#a855f7">$89</div><div class="ks"></div></div><div class="kpi"><div class="kl">AUM</div><div class="kv" style="color:#a855f7">$2.4B</div><div class="ks"></div></div><div class="kpi"><div class="kl">Holdings</div><div class="kv" style="color:#a855f7">28</div><div class="ks"></div></div><div class="kpi"><div class="kl">Anthropic</div><div class="kv" style="color:#a855f7">$61B</div><div class="ks">Top</div></div><div class="kpi"><div class="kl">ביצועים</div><div class="kv" style="color:#a855f7">+22%</div><div class="ks">שנה</div></div><div class="kpi"><div class="kl">Catalyst</div><div class="kv" style="color:#a855f7">IPO 2026-27</div><div class="ks">Databricks</div></div></div>
+
+<div class="verd" style="background:var(--pur)0a;border-color:var(--pur)44">
+ <div class="vic">🟣</div>
+ <div>
+  <div class="vrec" style="color:var(--pur)">SPEC BUY ≤7% — Pre-IPO AI Exposure</div>
+  <div class="vsub">Anthropic+OpenAI+SpaceX pre-IPO exposure. Catalyst: Databricks IPO. NAV self-reported = סיכון.</div>
+ </div>
+</div>
+
+<div style="background:var(--s3);border-radius:11px;padding:14px 17px;margin-top:11px">
+ <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:10px">
+  <div style="background:var(--s2);border-radius:7px;padding:9px;text-align:center"><div style="font-size:9px;color:var(--t3);margin-bottom:4px">כניסה</div><div style="font-family:var(--fm);font-weight:700;color:var(--grn);font-size:13px">$78–85</div></div>
+  <div style="background:var(--s2);border-radius:7px;padding:9px;text-align:center"><div style="font-size:9px;color:var(--t3);margin-bottom:4px">Stop Loss</div><div style="font-family:var(--fm);font-weight:700;color:var(--red);font-size:13px">$72</div></div>
+  <div style="background:var(--s2);border-radius:7px;padding:9px;text-align:center"><div style="font-size:9px;color:var(--t3);margin-bottom:4px">יעד 12M</div><div style="font-family:var(--fm);font-weight:700;color:#a855f7;font-size:13px">$110–130</div></div>
+  <div style="background:var(--s2);border-radius:7px;padding:9px;text-align:center"><div style="font-size:9px;color:var(--t3);margin-bottom:4px">פוזיציה</div><div style="font-family:var(--fm);font-weight:700;color:var(--amb);font-size:13px">≤7%</div></div>
+ </div>
+</div>
+</div>
+<div class="pg" id="pg-ceg">
+<div class="hero" style="background:linear-gradient(135deg,#06b6d40d,#06b6d405)">
+ <div class="hl" style="background:#06b6d4"></div>
+ <div class="htop">
+  <div class="hl2">
+   <div class="hico" style="background:#06b6d433;border:1px solid #06b6d455;font-size:11px;font-weight:700;color:#06b6d4">CEG</div>
+   <div>
+    <div class="htk2" style="background:#0a1f2e;color:#06b6d4">NASDAQ/NYSE: CEG</div>
+    <div class="hn">Constellation</div>
+    <div class="hd">גרעין #1 ארה"ב · Calpine (ינואר 2026) · Natural Gas · Retail Energy · Baltimore MD · 35K עובדים</div>
+    <div class="htags"><span class="tag" style="background:#06b6d422;color:#06b6d4;border-color:#06b6d444">גרעין #1 21GW</span><span class="tag" style="background:#1fd15a22;color:#1fd15a;border-color:#1fd15a44">Q1 Beat +5.8%</span><span class="tag" style="background:#e83c5a22;color:#e83c5a;border-color:#e83c5a44">▼33% מ-ATH $412</span><span class="tag" style="background:#f5a62322;color:#f5a623;border-color:#f5a62344">Calpine $22B 2026</span></div>
+   </div>
+  </div>
+  <div class="hr2">
+   <div class="hpx" style="color:#06b6d4" id="hpx-CEG">$275</div>
+   <div class="hch" style="color:var(--t2)">Cap: $99.3B · P/E 23.9x · EPS TTM $11.51 · Beta 1.15 · Div 0.62%</div>
+  </div>
+ </div>
+ <div style="display:flex;align-items:center;gap:10px;margin-top:10px;padding:9px 13px;background:rgba(0,0,0,.25);border-radius:8px;flex-wrap:wrap">
+  <span style="font-size:11px;color:var(--t3)">מחיר עדכני:</span>
+  <span style="font-family:var(--fm);font-size:20px;font-weight:900;color:#06b6d4" id="pls-price-CEG">$275</span>
+  <span style="font-family:var(--fm);font-size:11px;font-weight:700;padding:2px 8px;border-radius:5px" id="pls-chg-CEG"></span>
+  <span style="font-size:9px;color:var(--t3);margin-right:auto" id="pls-time-CEG">לחץ לרענון</span>
+  <button onclick="fetchSinglePrice('CEG')" style="padding:4px 12px;border-radius:6px;font-size:10px;font-weight:700;cursor:pointer;border:1px solid #06b6d444;background:#06b6d411;color:#06b6d4;font-family:var(--fn)">🔄 רענן מחיר</button>
+ </div>
+ <div class="rlbl" style="margin-top:10px">52 WEEK RANGE — $243 → $412</div>
+ <div class="rrow"><span>$243</span><span style="color:#06b6d4">● $275</span><span>$412</span></div>
+ <div class="rtr"><div class="rg"></div><div class="rp" style="left:35%"></div></div>
+</div>
+
+<div class="g2">
+ <div class="panel">
+  <div class="sec"><span class="sb2" style="background:var(--grn)"></span>שולי רווח + תשואה</div>
+  <div class="mb"><div class="mbl">גולמי</div><div class="mbt"><div class="mbf" style="width:30%;background:#06b6d4"></div></div><div class="mbv" style="color:#06b6d4">~30%</div></div><div class="mb"><div class="mbl">תפעולי</div><div class="mbt"><div class="mbf" style="width:18%;background:#1fd15a"></div></div><div class="mbv" style="color:#1fd15a">~18%</div></div><div class="mb"><div class="mbl">נקי Q1</div><div class="mbt"><div class="mbf" style="width:14%;background:#1fd15a"></div></div><div class="mbv" style="color:#1fd15a">14.3%</div></div><div class="mb"><div class="mbl">ROE</div><div class="mbt"><div class="mbf" style="width:12%;background:#f5a623"></div></div><div class="mbv" style="color:#f5a623">~12%</div></div><div class="mb"><div class="mbl">FCFbG FY26-27</div><div class="mbt"><div class="mbf" style="width:60%;background:#1fd15a"></div></div><div class="mbv" style="color:#1fd15a">$8.4B</div></div><div class="mb"><div class="mbl">FCFbG FY28-29</div><div class="mbt"><div class="mbf" style="width:80%;background:#1fd15a"></div></div><div class="mbv" style="color:#1fd15a">$11.5-13B</div></div>
+ </div>
+ <div class="panel">
+  <div class="sec"><span class="sb2" style="background:var(--amb)"></span>מאזן · D/E · FCF</div>
+  <div class="bs-g"><div class="bsi"><div class="bsl">Total Assets</div><div class="bsv" style="color:#06b6d4">$96.9B</div></div><div class="bsi"><div class="bsl">LT Debt</div><div class="bsv" style="color:var(--red)">$16.994B</div></div><div class="bsi"><div class="bsl">D/E</div><div class="bsv" style="color:var(--amb)">~0.85</div></div><div class="bsi"><div class="bsl">Goodwill</div><div class="bsv" style="color:var(--red)">$11.1B</div></div><div class="bsi"><div class="bsl">FCFbG FY26-27</div><div class="bsv" style="color:var(--grn)">$8.4B</div></div><div class="bsi"><div class="bsl">FCFbG FY28-29</div><div class="bsv" style="color:var(--grn)">$11.5-13B</div></div><div class="bsi"><div class="bsl">Credit Rating</div><div class="bsv" style="color:var(--grn)">BBB+/Baa1</div></div><div class="bsi"><div class="bsl">Dividend</div><div class="bsv" style="color:var(--t2)">$1.71 · 0.62%</div></div></div>
+ </div>
+</div>
+
+<div class="panel">
+ <div class="sec"><span class="sb2" style="background:var(--gold)"></span>הנהלה · מנכ"ל</div>
+ <div style="padding:10px 13px;background:var(--s3);border-radius:8px;font-size:12px;color:var(--t2);line-height:1.75"><strong style="color:var(--t1)">Joe Dominguez — CEO 2022 (Exelon Spinoff) · Georgetown Law JD · Microsoft PPA 20Y · Calpine $22B · ציון 8/10</strong></div>
+</div>
+
+<div class="panel">
+ <div class="sec"><span class="sb2" style="background:var(--gold)"></span>הערכת שווי וורן באפט</div>
+ <div class="buff-g"><div class="bi"><div class="bico">✅</div><div><div class="bn2">עסק מובן</div><div class="bnote2">גרעין+גז = ייצור חשמל</div></div></div><div class="bi"><div class="bico">✅</div><div><div class="bn2">היסטוריה</div><div class="bnote2">Exelon legacy 20+ שנה</div></div></div><div class="bi"><div class="bico">✅</div><div><div class="bn2">עתיד</div><div class="bnote2">AI Power demand 10+ שנים</div></div></div><div class="bi"><div class="bico">✅</div><div><div class="bn2">הנהלה</div><div class="bnote2">Dominguez 8/10</div></div></div><div class="bi"><div class="bico">⚠️</div><div><div class="bn2">ROE</div><div class="bnote2">~12% — Utility normal</div></div></div><div class="bi"><div class="bico">⚠️</div><div><div class="bn2">שוליים</div><div class="bnote2">14% — Utility</div></div></div><div class="bi"><div class="bico">⚠️</div><div><div class="bn2">D/E</div><div class="bnote2">~0.85 — Calpine</div></div></div><div class="bi"><div class="bico">✅</div><div><div class="bn2">FCF</div><div class="bnote2">FCFbG $8.4B→$13B</div></div></div><div class="bi"><div class="bico">✅</div><div><div class="bn2">תמחור</div><div class="bnote2">P/E 24x ▼33% שיא</div></div></div></div>
+ <div class="btot">
+  <div><div class="bscore" style="color:#06b6d4">5.5</div><div style="font-size:9px;color:var(--t3)">/ 9.0</div></div>
+  <div><div class="bstars">★★★☆☆</div><div class="bverd" style="color:#06b6d4">BUY — AI Power Infrastructure Play</div></div>
+ </div>
+</div>
+
+<div class="panel hig">
+ <div class="sec"><span class="sb2" style="background:var(--grn)"></span>יתרונות תחרותיים</div>
+ <div class="ai"><div class="rd2" style="background:var(--grn)"></div><span>גרעין = MOAT בלתי ניתן לשכפול — $15-30B ו-15-20 שנה לבנות</span></div><div class="ai"><div class="rd2" style="background:var(--grn)"></div><span>AI Power — Data Centers צריכים 24/7 clean power</span></div><div class="ai"><div class="rd2" style="background:var(--grn)"></div><span>Microsoft PPA 20 שנה — template לכל AI hyperscaler</span></div><div class="ai"><div class="rd2" style="background:var(--grn)"></div><span>EPS $11-12 FY26, FCFbG עולה ל-$13B — visibility ברורה</span></div>
+</div>
+
+<div class="panel hir">
+ <div class="sec"><span class="sb2" style="background:var(--red)"></span>סיכונים עיקריים</div>
+ <div class="ri"><div class="rd2" style="background:var(--red)"></div><span>Goodwill $11.1B — Calpine overpay? Impairment risk</span></div><div class="ri"><div class="rd2" style="background:var(--red)"></div><span>D/E עלה — Interest expense ×2 ל-$253M/Q</span></div><div class="ri"><div class="rd2" style="background:var(--red)"></div><span>DOJ PJM Divestitures — $5B נכסים רווחיים נמכרים</span></div><div class="ri"><div class="rd2" style="background:var(--red)"></div><span>▼33% מהשיא — AI Power narrative אולי מתומחר</span></div>
+</div>
+
+<div class="kpis"><div class="kpi"><div class="kl">הכנסות Q1 2026</div><div class="kv" style="color:#06b6d4">$11.12B</div><div class="ks">+64% YoY</div></div><div class="kpi"><div class="kl">GAAP EPS Q1</div><div class="kv" style="color:#06b6d4">$4.49</div><div class="ks">vs $0.38</div></div><div class="kpi"><div class="kl">Adj EPS Q1</div><div class="kv" style="color:#06b6d4">$2.74</div><div class="ks">Beat +5.8%</div></div><div class="kpi"><div class="kl">FY26 Guidance</div><div class="kv" style="color:#06b6d4">$11-12 EPS</div><div class="ks">Reaffirmed</div></div><div class="kpi"><div class="kl">FCFbG</div><div class="kv" style="color:#06b6d4">$8.4B</div><div class="ks">FY26-27</div></div><div class="kpi"><div class="kl">יעד אנליסטים</div><div class="kv" style="color:#06b6d4">$367</div><div class="ks">+33% מ-$275</div></div></div>
+
+<div class="verd" style="background:#06b6d40a;border-color:#06b6d444">
+ <div class="vic">🟢</div>
+ <div>
+  <div class="vrec" style="color:#06b6d4">BUY — AI Power Infrastructure · ▼33% Discount · RSI Oversold</div>
+  <div class="vsub">RSI ~38 = Oversold. Q1 Beat +5.8%. EPS $11-12. FCFbG $8.4B→$13B. DOJ headwind חולף H2. Microsoft PPA template.</div>
+ </div>
+</div>
+
+<div style="background:var(--s3);border-radius:11px;padding:14px 17px;margin-top:11px">
+ <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:10px">
+  <div style="background:var(--s2);border-radius:7px;padding:9px;text-align:center"><div style="font-size:9px;color:var(--t3);margin-bottom:4px">כניסה</div><div style="font-family:var(--fm);font-weight:700;color:var(--grn);font-size:13px">$255–280</div></div>
+  <div style="background:var(--s2);border-radius:7px;padding:9px;text-align:center"><div style="font-size:9px;color:var(--t3);margin-bottom:4px">Stop Loss</div><div style="font-family:var(--fm);font-weight:700;color:var(--red);font-size:13px">$240</div></div>
+  <div style="background:var(--s2);border-radius:7px;padding:9px;text-align:center"><div style="font-size:9px;color:var(--t3);margin-bottom:4px">יעד 12M</div><div style="font-family:var(--fm);font-weight:700;color:#06b6d4;font-size:13px">$330–367</div></div>
+  <div style="background:var(--s2);border-radius:7px;padding:9px;text-align:center"><div style="font-size:9px;color:var(--t3);margin-bottom:4px">פוזיציה</div><div style="font-family:var(--fm);font-weight:700;color:var(--amb);font-size:13px">8–12%</div></div>
+ </div>
+</div>
+</div>
+<div class="pg" id="pg-dram">
+<div class="hero" style="background:linear-gradient(135deg,#e879f90d,#e879f905)">
+ <div class="hl" style="background:#e879f9"></div>
+ <div class="htop">
+  <div class="hl2">
+   <div class="hico" style="background:#e879f933;border:1px solid #e879f955;font-size:11px;font-weight:700;color:#e879f9">DRAM</div>
+   <div>
+    <div class="htk2" style="background:#1a0a2e;color:#e879f9">NASDAQ/NYSE: DRAM</div>
+    <div class="hn">Memory ETF</div>
+    <div class="hd">Roundhill Memory ETF · Actively Managed · Launched April 2 2026 · NYSE · Samsung+SK Hynix+Micron</div>
+    <div class="htags"><span class="tag" style="background:#e879f922;color:#e879f9;border-color:#e879f944">+100% מהשקה ב-36 ימים</span><span class="tag" style="background:#1fd15a22;color:#1fd15a;border-color:#1fd15a44">AUM $6.2B שיא</span><span class="tag" style="background:#e83c5a22;color:#e83c5a;border-color:#e83c5a44">Korea Risk גבוה</span><span class="tag" style="background:#3d8bff22;color:#3d8bff;border-color:#3d8bff44">AI Memory Supercycle</span></div>
+   </div>
+  </div>
+  <div class="hr2">
+   <div class="hpx" style="color:#e879f9" id="hpx-DRAM">$51</div>
+   <div class="hch" style="color:var(--t2)">AUM: $6.2B+ · P/E Holdings: 6.4x · Expense 0.65% · Launched Apr 2, 2026</div>
+  </div>
+ </div>
+ <div style="display:flex;align-items:center;gap:10px;margin-top:10px;padding:9px 13px;background:rgba(0,0,0,.25);border-radius:8px;flex-wrap:wrap">
+  <span style="font-size:11px;color:var(--t3)">מחיר עדכני:</span>
+  <span style="font-family:var(--fm);font-size:20px;font-weight:900;color:#e879f9" id="pls-price-DRAM">$51</span>
+  <span style="font-family:var(--fm);font-size:11px;font-weight:700;padding:2px 8px;border-radius:5px" id="pls-chg-DRAM"></span>
+  <span style="font-size:9px;color:var(--t3);margin-right:auto" id="pls-time-DRAM">לחץ לרענון</span>
+  <button onclick="fetchSinglePrice('DRAM')" style="padding:4px 12px;border-radius:6px;font-size:10px;font-weight:700;cursor:pointer;border:1px solid #e879f944;background:#e879f911;color:#e879f9;font-family:var(--fn)">🔄 רענן מחיר</button>
+ </div>
+ <div class="rlbl" style="margin-top:10px">52 WEEK RANGE — $26.14 (Launch) → $56.38</div>
+ <div class="rrow"><span>$26.14 (Launch)</span><span style="color:#e879f9">● $51</span><span>$56.38</span></div>
+ <div class="rtr"><div class="rg"></div><div class="rp" style="left:85%"></div></div>
+</div>
+
+<div class="g2">
+ <div class="panel">
+  <div class="sec"><span class="sb2" style="background:var(--grn)"></span>שולי רווח + תשואה</div>
+  <div class="mb"><div class="mbl">ביצועים מהשקה</div><div class="mbt"><div class="mbf" style="width:100%;background:#e879f9"></div></div><div class="mbv" style="color:#e879f9">+100%</div></div><div class="mb"><div class="mbl">Korea Exposure</div><div class="mbt"><div class="mbf" style="width:65%;background:#red"></div></div><div class="mbv" style="color:#red">גבוה</div></div><div class="mb"><div class="mbl">P/E Holdings</div><div class="mbt"><div class="mbf" style="width:40%;background:#1fd15a"></div></div><div class="mbv" style="color:#1fd15a">6.4x</div></div><div class="mb"><div class="mbl">Expense Ratio</div><div class="mbt"><div class="mbf" style="width:20%;background:#f5a623"></div></div><div class="mbv" style="color:#f5a623">0.65%</div></div>
+ </div>
+ <div class="panel">
+  <div class="sec"><span class="sb2" style="background:var(--amb)"></span>מאזן · D/E · FCF</div>
+  <div class="bs-g"><div class="bsi"><div class="bsl">מחיר</div><div class="bsv" style="color:#e879f9">~$51</div></div><div class="bsi"><div class="bsl">AUM</div><div class="bsv" style="color:var(--grn)">$6.2B+</div></div><div class="bsi"><div class="bsl">מהשקה</div><div class="bsv" style="color:var(--grn)">+100%</div></div><div class="bsi"><div class="bsl">52W שפל/שיא</div><div class="bsv" style="color:var(--t2)">$26/$56</div></div><div class="bsi"><div class="bsl">P/E Holdings</div><div class="bsv" style="color:var(--grn)">6.4x</div></div><div class="bsi"><div class="bsl">Expense</div><div class="bsv" style="color:var(--amb)">0.65%</div></div><div class="bsi"><div class="bsl">Korea %</div><div class="bsv" style="color:var(--red)">גבוה</div></div><div class="bsi"><div class="bsl">Signal</div><div class="bsv" style="color:var(--grn)">Strong Buy</div></div></div>
+ </div>
+</div>
+
+<div class="panel">
+ <div class="sec"><span class="sb2" style="background:var(--gold)"></span>הנהלה · מנכ"ל</div>
+ <div style="padding:10px 13px;background:var(--s3);border-radius:8px;font-size:12px;color:var(--t2);line-height:1.75"><strong style="color:var(--t1)">Roundhill / Will Hershey — CEO Roundhill Investments · BETZ,CHAT,YBTC,DRAM · Thematic ETF specialist</strong></div>
+</div>
+
+<div class="panel">
+ <div class="sec"><span class="sb2" style="background:var(--gold)"></span>הערכת שווי וורן באפט</div>
+ <div class="buff-g"><div class="bi"><div class="bico">⚠️</div><div><div class="bn2">עסק מובן</div><div class="bnote2">Memory chips = מורכב</div></div></div><div class="bi"><div class="bico">❌</div><div><div class="bn2">היסטוריה</div><div class="bnote2">6 שבועות בלבד</div></div></div><div class="bi"><div class="bico">✅</div><div><div class="bn2">עתיד</div><div class="bnote2">AI Memory Supercycle</div></div></div><div class="bi"><div class="bico">⚠️</div><div><div class="bn2">הנהלה</div><div class="bnote2">Roundhill OK</div></div></div><div class="bi"><div class="bico">✅</div><div><div class="bn2">P/E זול</div><div class="bnote2">6.4x — Deep Value</div></div></div><div class="bi"><div class="bico">⚠️</div><div><div class="bn2">שוליים</div><div class="bnote2">מתרחבים HBM</div></div></div><div class="bi"><div class="bico">✅</div><div><div class="bn2">D/E</div><div class="bnote2">0 — ETF</div></div></div><div class="bi"><div class="bico">❌</div><div><div class="bn2">FCF</div><div class="bnote2">N/A ETF</div></div></div><div class="bi"><div class="bico">❌</div><div><div class="bn2">תמחור</div><div class="bnote2">+100% FOMO</div></div></div></div>
+ <div class="btot">
+  <div><div class="bscore" style="color:#e879f9">2.5</div><div style="font-size:9px;color:var(--t3)">/ 9.0</div></div>
+  <div><div class="bstars">★★☆☆☆</div><div class="bverd" style="color:#e879f9">SPEC — Thematic Momentum Play</div></div>
+ </div>
+</div>
+
+<div class="panel hig">
+ <div class="sec"><span class="sb2" style="background:var(--grn)"></span>יתרונות תחרותיים</div>
+ <div class="ai"><div class="rd2" style="background:var(--grn)"></div><span>AI Memory Supercycle — כל H100 GPU = 80GB HBM, multi-year demand</span></div><div class="ai"><div class="rd2" style="background:var(--grn)"></div><span>P/E 6.4x = Memory sector deep value, re-rating potential 12-15x</span></div><div class="ai"><div class="rd2" style="background:var(--grn)"></div><span>Diversified — Samsung+SK Hynix+Micron+SanDisk+WDC+STX</span></div><div class="ai"><div class="rd2" style="background:var(--grn)"></div><span>WDC+STX +200% YTD — AI Storage supercycle captured too</span></div>
+</div>
+
+<div class="panel hir">
+ <div class="sec"><span class="sb2" style="background:var(--red)"></span>סיכונים עיקריים</div>
+ <div class="ri"><div class="rd2" style="background:var(--red)"></div><span>+100% ב-36 ימים = FOMO Extreme, sharp reversal likely</span></div><div class="ri"><div class="rd2" style="background:var(--red)"></div><span>Korea Concentration — Samsung+SKH dominant, geopolitical risk</span></div><div class="ri"><div class="rd2" style="background:var(--red)"></div><span>Memory Cyclicality — 2022: DRAM prices ▼75%</span></div><div class="ri"><div class="rd2" style="background:var(--red)"></div><span>Expense 0.65% vs SMH 0.35% — יקר יחסית</span></div>
+</div>
+
+<div class="kpis"><div class="kpi"><div class="kl">מחיר</div><div class="kv" style="color:#e879f9">$51</div><div class="ks">May 2026</div></div><div class="kpi"><div class="kl">AUM</div><div class="kv" style="color:#e879f9">$6.2B+</div><div class="ks">36 ימים</div></div><div class="kpi"><div class="kl">מהשקה</div><div class="kv" style="color:#e879f9">+100%</div><div class="ks">Apr 2→May 12</div></div><div class="kpi"><div class="kl">P/E</div><div class="kv" style="color:#e879f9">6.4x</div><div class="ks">Memory cheap</div></div><div class="kpi"><div class="kl">WDC</div><div class="kv" style="color:#e879f9">$200% YTD</div><div class="ks"></div></div><div class="kpi"><div class="kl">Signal</div><div class="kv" style="color:#e879f9">Strong Buy</div><div class="ks"></div></div></div>
+
+<div class="verd" style="background:#e879f90a;border-color:#e879f944">
+ <div class="vic">🟣</div>
+ <div>
+  <div class="vrec" style="color:#e879f9">SPEC BUY ≤8% — Buy Dips $42-46 · אל תרדוף $51</div>
+  <div class="vsub">P/E 6.4x = Memory זול. AI HBM demand multi-year. Korea risk גבוה. כנס בתיקון $42-46 בלבד — לא ב-$51.</div>
+ </div>
+</div>
+
+<div style="background:var(--s3);border-radius:11px;padding:14px 17px;margin-top:11px">
+ <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:10px">
+  <div style="background:var(--s2);border-radius:7px;padding:9px;text-align:center"><div style="font-size:9px;color:var(--t3);margin-bottom:4px">כניסה</div><div style="font-family:var(--fm);font-weight:700;color:var(--grn);font-size:13px">$42–46</div></div>
+  <div style="background:var(--s2);border-radius:7px;padding:9px;text-align:center"><div style="font-size:9px;color:var(--t3);margin-bottom:4px">Stop Loss</div><div style="font-family:var(--fm);font-weight:700;color:var(--red);font-size:13px">$36</div></div>
+  <div style="background:var(--s2);border-radius:7px;padding:9px;text-align:center"><div style="font-size:9px;color:var(--t3);margin-bottom:4px">יעד 12M</div><div style="font-family:var(--fm);font-weight:700;color:#e879f9;font-size:13px">$60–75</div></div>
+  <div style="background:var(--s2);border-radius:7px;padding:9px;text-align:center"><div style="font-size:9px;color:var(--t3);margin-bottom:4px">פוזיציה</div><div style="font-family:var(--fm);font-weight:700;color:var(--amb);font-size:13px">≤8%</div></div>
+ </div>
+</div>
+</div>
+
+<!-- SMART AI -->
+<div class="pg" id="pg-smart">
+ <div style="font-size:22px;font-weight:900;margin-bottom:6px">🤖 Smart AI Dashboard</div>
+ <div style="font-size:12px;color:var(--t2);margin-bottom:16px">חדשות · Anomaly Detection · רענון תזה · דירוג חכם — מופעל על ידי Claude API + Web Search</div>
+ <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+  <div class="ai-card">
+   <div class="ai-ch"><div class="ai-icon" style="background:rgba(61,139,255,.12)">📰</div><div><div class="ai-title">מה חדש?</div><div class="ai-sub">חדשות · Earnings · Upgrades</div></div></div>
+   <div class="ai-body">
+    <div class="tkr-row" id="news-tkrs"><button class="tkr-btn on" style="border-color:$250;color:$250" data-tkr="AMZN">AMZN</button><button class="tkr-btn on" style="border-color:$422;color:$422" data-tkr="MSFT">MSFT</button><button class="tkr-btn on" style="border-color:$662;color:$662" data-tkr="META">META</button><button class="tkr-btn on" style="border-color:$44;color:$44" data-tkr="IBIT">IBIT</button><button class="tkr-btn on" style="border-color:$89;color:$89" data-tkr="VCX">VCX</button><button class="tkr-btn on" style="border-color:$275;color:$275" data-tkr="CEG">CEG</button><button class="tkr-btn on" style="border-color:$51;color:$51" data-tkr="DRAM">DRAM</button></div>
+    <button class="run-btn" style="background:linear-gradient(135deg,#1b3a6b,#3d8bff)" onclick="runNews()" id="news-btn">🔍 בדוק עכשיו</button>
+    <div class="ai-out" id="news-out">בחר מניות ולחץ...</div>
+   </div>
+  </div>
+  <div class="ai-card">
+   <div class="ai-ch"><div class="ai-icon" style="background:rgba(232,60,90,.12)">⚠️</div><div><div class="ai-title">Anomaly Detection</div><div class="ai-sub">נפח חריג · מחיר · Options Flow</div></div></div>
+   <div class="ai-body">
+    <div class="tkr-row" id="anom-tkrs"><button class="tkr-btn on" style="border-color:$250;color:$250" data-tkr="AMZN">AMZN</button><button class="tkr-btn on" style="border-color:$422;color:$422" data-tkr="MSFT">MSFT</button><button class="tkr-btn on" style="border-color:$662;color:$662" data-tkr="META">META</button><button class="tkr-btn on" style="border-color:$44;color:$44" data-tkr="IBIT">IBIT</button><button class="tkr-btn on" style="border-color:$89;color:$89" data-tkr="VCX">VCX</button><button class="tkr-btn on" style="border-color:$275;color:$275" data-tkr="CEG">CEG</button><button class="tkr-btn on" style="border-color:$51;color:$51" data-tkr="DRAM">DRAM</button></div>
+    <button class="run-btn" style="background:linear-gradient(135deg,#5c0a18,#e83c5a)" onclick="runAnomaly()" id="anom-btn">🔬 סרוק אנומליות</button>
+    <div class="ai-out" id="anom-out">לחץ לסריקה...</div>
+   </div>
+  </div>
+  <div class="ai-card">
+   <div class="ai-ch"><div class="ai-icon" style="background:rgba(245,166,35,.12)">🔄</div><div><div class="ai-title">רענון תזה חודשי</div><div class="ai-sub">עדכון בהתבסס על נתונים חדשים</div></div></div>
+   <div class="ai-body">
+    <div style="display:flex;gap:8px;margin-bottom:10px;flex-wrap:wrap">
+     <select id="thesis-tkr" style="background:var(--s3);border:1px solid var(--b2);border-radius:6px;padding:5px 9px;font-size:11px;color:var(--t1);font-family:var(--fn)">
+      <option value="AMZN">AMZN — Amazon</option><option value="MSFT">MSFT — Microsoft</option><option value="META">META — Meta</option><option value="IBIT">IBIT — Bitcoin ETF</option><option value="VCX">VCX — Fundrise VC</option><option value="CEG">CEG — Constellation</option><option value="DRAM">DRAM — Memory ETF</option>
+     </select>
+     <button class="run-btn" style="background:linear-gradient(135deg,#5a3500,#f5a623);margin-bottom:0" onclick="runThesis()">⚡ רענן</button>
+    </div>
+    <div class="ai-out" id="thesis-out">בחר מניה ולחץ...</div>
+   </div>
+  </div>
+  <div class="ai-card">
+   <div class="ai-ch"><div class="ai-icon" style="background:rgba(31,209,90,.12)">🏆</div><div><div class="ai-title">Smart Ranking</div><div class="ai-sub">מכפילים + אנליסטים + מומנטום + סנטימנט</div></div></div>
+   <div class="ai-body">
+    <button class="run-btn" style="background:linear-gradient(135deg,#0a2a10,#1fd15a)" onclick="runRanking()">📊 עדכן דירוג</button>
+    <div class="ai-out" id="rank-out">לחץ לדירוג AI חכם...</div>
+   </div>
+  </div>
+ </div>
+</div>
+
+</div>
+<script>
+function go(id,btn){
+ document.querySelectorAll('.pg').forEach(p=>p.classList.remove('on'));
+ document.querySelectorAll('.nb').forEach(b=>b.classList.remove('on'));
+ document.getElementById('pg-'+id).classList.add('on');
+ if(btn)btn.classList.add('on');
+ window.scrollTo({top:0,behavior:'smooth'});
+}
+
+const TICKERS={'AMZN':'Amazon','MSFT':'Microsoft','META':'Meta','IBIT':'Bitcoin ETF','VCX':'Fundrise','CEG':'Constellation Energy','DRAM':'Memory ETF'};
+const COLORS={'AMZN':'#f5a623','MSFT':'#3d8bff','META':'#3d8bff','IBIT':'#f5c842','VCX':'#a855f7','CEG':'#06b6d4','DRAM':'#e879f9'};
+
+async function callClaude(sys,usr){
+ const body={model:'claude-sonnet-4-20250514',max_tokens:1000,system:sys,messages:[{role:'user',content:usr}],tools:[{type:'web_search_20250305',name:'web_search'}]};
+ const res=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)});
+ if(!res.ok)throw new Error('API '+res.status);
+ const data=await res.json();
+ return data.content.filter(b=>b.type==='text').map(b=>b.text).join('\n');
+}
+
+function fmt(t){return t.replace(/\*\*(.*?)\*\*/g,'<strong>$1</strong>').replace(/\n/g,'<br/>')}
+
+function setEl(id,html){const el=document.getElementById(id);if(el)el.innerHTML=html;}
+
+async function fetchAllPrices(){
+ const btn=document.getElementById('rfbtn');
+ if(btn){btn.disabled=true;btn.textContent='טוען...';}
+ const ts=new Date().toLocaleTimeString('he-IL',{hour:'2-digit',minute:'2-digit'});
+ try{
+  const sys='Return ONLY a JSON array. No markdown. Format: [{"ticker":"X","price":"123.45","change":"+1.2%"},...] for all 7 tickers.';
+  const usr='Get CURRENT real-time stock prices for: AMZN, MSFT, META, IBIT (iShares Bitcoin Trust ETF), VCX (Fundrise Innovation Fund NYSE), CEG (Constellation Energy), DRAM (Roundhill Memory ETF NYSE). Search each one now.';
+  const raw=await callClaude(sys,usr);
+  let data=null;
+  const m=raw.match(/\[[\s\S]*?\]/);
+  if(m){try{data=JSON.parse(m[0]);}catch(e){}}
+  if(!data){
+   const objs=[...raw.matchAll(/\{[^{}]+\}/g)];
+   if(objs.length){try{data=objs.map(o=>JSON.parse(o[0]));}catch(e){}}
+  }
+  if(data&&Array.isArray(data)){
+   data.forEach(item=>{
+    if(!item.ticker||!item.price)return;
+    const px='$'+String(item.price).replace('$','');
+    const cl=COLORS[item.ticker]||'#eee';
+    const chg=item.change||'';
+    const pos=chg.startsWith('+')||(parseFloat(chg)>=0&&!chg.startsWith('-'));
+    // live bar
+    setEl('lp-'+item.ticker,px);
+    const lc=document.getElementById('lc-'+item.ticker);
+    if(lc){lc.textContent=chg;lc.style.color=pos?'var(--grn)':'var(--red)';}
+    // per-page strip
+    setEl('pls-price-'+item.ticker,px);
+    const pc=document.getElementById('pls-chg-'+item.ticker);
+    if(pc){pc.textContent=chg;pc.style.color=pos?'var(--grn)':'var(--red)';pc.style.background=pos?'rgba(31,209,90,.12)':'rgba(232,60,90,.12)';}
+    setEl('pls-time-'+item.ticker,'⏱ '+ts);
+    // hero + card
+    setEl('hpx-'+item.ticker,px);
+    setEl('card-px-'+item.ticker,px);
+    setEl('tbl-px-'+item.ticker,px);
+   });
+   setEl('live-ts','עודכן: '+ts);
+  } else {
+   setEl('live-ts','לא ניתן לפענח — נסה שוב');
+  }
+ }catch(e){setEl('live-ts','שגיאה: '+e.message);}
+ if(btn){btn.disabled=false;btn.textContent='⚡ מחירים חיים';}
+}
+
+async function fetchSinglePrice(tkr){
+ const el=document.getElementById('pls-price-'+tkr);
+ if(el)el.innerHTML='<span class="spin"></span>';
+ const ts=new Date().toLocaleTimeString('he-IL',{hour:'2-digit',minute:'2-digit'});
+ try{
+  const name=TICKERS[tkr]||tkr;
+  const sys='Return ONLY JSON no markdown: {"ticker":"X","price":"123.45","change":"+1.2%"}';
+  const usr=`Current price of ${name} ticker ${tkr}. ${tkr==='VCX'?'Search: Fundrise Innovation Fund VCX NYSE price':''} ${tkr==='DRAM'?'Search: Roundhill Memory ETF DRAM NYSE price':''} Search now and return JSON only.`;
+  const raw=await callClaude(sys,usr);
+  const m=raw.match(/\{[\s\S]*?\}/);
+  if(m){
+   const d=JSON.parse(m[0]);
+   if(d.price){
+    const px='$'+String(d.price).replace('$','');
+    const cl=COLORS[tkr]||'#eee';
+    const chg=d.change||'';
+    const pos=chg.startsWith('+')||(parseFloat(chg)>=0&&!chg.startsWith('-'));
+    setEl('pls-price-'+tkr,px);
+    const pc=document.getElementById('pls-chg-'+tkr);
+    if(pc){pc.textContent=chg;pc.style.color=pos?'var(--grn)':'var(--red)';pc.style.background=pos?'rgba(31,209,90,.12)':'rgba(232,60,90,.12)';}
+    setEl('pls-time-'+tkr,'⏱ '+ts);
+    setEl('lp-'+tkr,px);
+    setEl('hpx-'+tkr,px);
+    setEl('card-px-'+tkr,px);
+    setEl('tbl-px-'+tkr,px);
+    return;
+   }
+  }
+  const m2=raw.match(/\$?\s*([\d,]+\.?[\d]*)/);
+  if(m2){const px='$'+m2[1].replace(',','');setEl('pls-price-'+tkr,px);setEl('hpx-'+tkr,px);}
+  else setEl('pls-price-'+tkr,'לא נמצא');
+ }catch(e){setEl('pls-price-'+tkr,'שגיאה');}
+ setEl('pls-time-'+tkr,'⏱ '+ts);
+}
+
+function getSelected(gid){return[...document.querySelectorAll('#'+gid+' .tkr-btn.on')].map(b=>b.dataset.tkr);}
+
+document.querySelectorAll('.tkr-btn').forEach(btn=>{
+ btn.addEventListener('click',()=>{
+  btn.classList.toggle('on');
+  btn.style.opacity=btn.classList.contains('on')?'1':'0.35';
+ });
+});
+
+async function runNews(){
+ const tkrs=getSelected('news-tkrs');
+ if(!tkrs.length){setEl('news-out','בחר לפחות מניה אחת');return;}
+ const btn=document.getElementById('news-btn');
+ if(btn)btn.disabled=true;
+ setEl('news-out','<span class="spin"></span> מחפש חדשות...');
+ try{
+  const sys='אתה אנליסט. עברית בלבד. עבור כל מניה: 2-3 נקודות חדשות 48-72 שעות אחרונות. פורמט: **TICKER**: נקודה1 / נקודה2. השתמש: 🟢 חיובי, 🔴 שלילי, ⚠️ ניטרלי.';
+  const usr=`חדשות אחרונות (earnings, upgrades/downgrades, news, price targets) עבור: ${tkrs.join(', ')}. תאריך: ${new Date().toLocaleDateString('he-IL')}.`;
+  const r=await callClaude(sys,usr);
+  setEl('news-out',fmt(r));
+ }catch(e){setEl('news-out','שגיאה: '+e.message);}
+ if(btn)btn.disabled=false;
+}
+
+async function runAnomaly(){
+ const tkrs=getSelected('anom-tkrs');
+ if(!tkrs.length){setEl('anom-out','בחר לפחות מניה אחת');return;}
+ const btn=document.getElementById('anom-btn');
+ if(btn)btn.disabled=true;
+ setEl('anom-out','<span class="spin"></span> סורק...');
+ try{
+  const sys='מערכת anomaly detection. עברית. עבור כל מניה: חפש נפח חריג, תנועות חדות, options flow, insider activity. 🔴=חמור ⚠️=חשוד 🟢=תקין';
+  const r=await callClaude(sys,`בדוק אנומליות 48 שעות אחרונות: ${tkrs.join(', ')}.`);
+  setEl('anom-out',fmt(r));
+ }catch(e){setEl('anom-out','שגיאה: '+e.message);}
+ if(btn)btn.disabled=false;
+}
+
+async function runThesis(){
+ const tkr=document.getElementById('thesis-tkr').value;
+ setEl('thesis-out','<span class="spin"></span> מרענן תזה...');
+ const ctx={'AMZN':'AWS $200B backlog, CapEx $200B, FCF $11B, Ads $75B, BUY יעד $291','MSFT':'Azure +39%, Backlog $625B, D/E 0.15, BUY יעד $590','META':'PEG 0.94, FCF $46B, Buffett 8/9, STRONG BUY יעד $855','IBIT':'BTC $76K vs ATH $126K, Halving 50%, HOLD יעד $65-90','VCX':'Anthropic+OpenAI+SpaceX pre-IPO, NAV $89, SPEC יעד $110-130','CEG':'גרעין #1, Calpine $22B, EPS $11-12, RSI Oversold, BUY יעד $367','DRAM':'Memory ETF +100%, P/E 6.4x, Korea risk, SPEC יעד $60-75'};
+ try{
+  const sys='אנליסט בכיר. רענן תזת השקעה (150-200 מילים) בעברית. כולל: מה השתנה? תזה נשמרת? המלצה: 🟢BUY / 🔴SELL / ⚠️HOLD. Conviction 1-10.';
+  const r=await callClaude(sys,`תזה נוכחית: ${ctx[tkr]}. חפש web חדשות+earnings+analyst changes עבור ${tkr} ב-30 ימים אחרונים. תן תזה מרוענת.`);
+  setEl('thesis-out',fmt(r));
+ }catch(e){setEl('thesis-out','שגיאה: '+e.message);}
+}
+
+async function runRanking(){
+ setEl('rank-out','<span class="spin"></span> מדרג...');
+ try{
+  const sys='דרג 7 נכסים (0-10 כל ממד). JSON בלבד: [{"ticker":"X","score":8.5,"reason":"קצר"},...] ממוין לפי score.';
+  const r=await callClaude(sys,'דרג: AMZN(P/E 35x,AWS), MSFT(P/E 24x,Azure+39%), META(PEG 0.94,FCF$46B), IBIT(BTC $76K,▼40%ATH), VCX(VC fund,+22%), CEG(גרעין,RSI38,EPS$11-12), DRAM(+100%,P/E6.4x). מחירים עדכניים, אנליסטים, מומנטום, מכפילים.');
+  let data=null;
+  const m=r.match(/\[[\s\S]*?\]/);
+  if(m){try{data=JSON.parse(m[0]);}catch(e){}}
+  if(data&&data.length){
+   const sorted=data.sort((a,b)=>b.score-a.score);
+   const html=sorted.map((d,i)=>{
+    const cl=COLORS[d.ticker]||'#888';
+    const sc=Math.round((d.score||0)*10);
+    return `<div style="display:flex;align-items:center;gap:10px;padding:9px 12px;background:var(--s3);border-radius:8px;margin-bottom:6px">
+     <span style="font-size:16px;font-weight:900;font-family:var(--fm);color:${cl};min-width:22px">${i+1}</span>
+     <span class="ntk" style="background:${cl}22;color:${cl}">${d.ticker}</span>
+     <div style="flex:1;height:5px;background:var(--b1);border-radius:3px;overflow:hidden"><div style="height:100%;border-radius:3px;background:${cl};width:${sc}%"></div></div>
+     <span style="font-family:var(--fm);font-weight:700;color:${cl};font-size:13px">${d.score||'?'}</span>
+     <span style="font-size:11px;color:var(--t2)">${d.reason||''}</span>
+    </div>`;
+   }).join('');
+   setEl('rank-out',html);
+  }else setEl('rank-out',fmt(r));
+ }catch(e){setEl('rank-out','שגיאה: '+e.message);}
+}
+
+setTimeout(fetchAllPrices,800);
+</script>
+</body>
+</html>
