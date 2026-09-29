@@ -304,19 +304,192 @@ function BuffettItem({ ico, name, note }) {
   );
 }
 
-function LiveStrip({ s, price, chg, ts, onRefresh }) {
+function LiveStrip({ s, price, chg, chgAmt, volume, avgVolume, ts, onRefresh }) {
+  const isUp = chg && !chg.startsWith("-");
+  const volRatio = volume && avgVolume ? (volume / avgVolume) : null;
   return (
-    <div className="ls">
+    <div className="ls" style={{ flexWrap: "wrap", gap: 8 }}>
       <span style={{ fontSize: 11, color: C.t3 }}>מחיר עדכני:</span>
       <span style={{ fontFamily: "'JetBrains Mono'", fontSize: 20, fontWeight: 900, color: s.color }}>{price}</span>
-      {chg && <span style={{ fontFamily: "'JetBrains Mono'", fontSize: 11, padding: "2px 7px", borderRadius: 4, background: chg.startsWith("+") ? "rgba(0,212,126,.12)" : "rgba(255,61,90,.12)", color: chg.startsWith("+") ? C.grn : C.red }}>{chg}</span>}
+      {chgAmt && <span style={{ fontFamily: "'JetBrains Mono'", fontSize: 12, color: isUp ? C.grn : C.red }}>{chgAmt}</span>}
+      {chg && <span style={{ fontFamily: "'JetBrains Mono'", fontSize: 11, padding: "2px 7px", borderRadius: 4, background: isUp ? "rgba(0,212,126,.12)" : "rgba(255,61,90,.12)", color: isUp ? C.grn : C.red }}>{chg}</span>}
+      {volRatio && <span style={{ fontSize: 9, padding: "2px 6px", borderRadius: 3, background: volRatio > 1.5 ? "rgba(245,158,11,.15)" : "rgba(255,255,255,.06)", color: volRatio > 1.5 ? C.amb : C.t3 }}>
+        Vol {volRatio > 1.5 ? "⚡" : ""}{(volRatio).toFixed(1)}x ממוצע
+      </span>}
       <span style={{ fontSize: 9, color: C.t3, marginRight: "auto" }}>{ts || "לחץ לרענון"}</span>
       <button className="rn-btn" style={{ borderColor: s.color + "44", color: s.color }} onClick={onRefresh}>🔄 רענן</button>
     </div>
   );
 }
 
-function StockPage({ s, livePx, liveChg, liveTs, onRefresh }) {
+// ── TECHNICAL PANEL ───────────────────────────────────────────────────
+function TechPanel({ quote, val, insiders, color }) {
+  if (!quote) return (
+    <div style={{ padding: "20px", textAlign: "center", color: C.t3, fontSize: 12 }}>
+      לחץ 🔄 רענן לטעינת ניתוח טכני בזמן אמת
+    </div>
+  );
+
+  const rsiColor = quote.rsi < 30 ? C.grn : quote.rsi > 70 ? C.red : quote.rsi < 45 ? C.amb : C.t2;
+  const rsiLabel = quote.rsi < 30 ? "Oversold 🟢" : quote.rsi > 70 ? "Overbought 🔴" : quote.rsi < 45 ? "ניטרלי-חלש" : "ניטרלי-חזק";
+
+  const price = quote.price;
+  const ma50 = quote.ma50;
+  const ma200 = quote.ma200;
+  const aboveMa50 = ma50 ? price > ma50 : null;
+  const aboveMa200 = ma200 ? price > ma200 : null;
+  const goldenCross = quote.goldenCross;
+
+  const pctFromHigh = quote.fromHigh;
+  const rangePos = quote.low52 && quote.high52
+    ? Math.max(0, Math.min(100, ((price - quote.low52) / (quote.high52 - quote.low52)) * 100))
+    : null;
+
+  const volRatio = quote.volume && quote.avgVolume ? quote.volume / quote.avgVolume : null;
+
+  const Row = ({ label, value, sub, vc }) => (
+    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "6px 0", borderBottom: `1px solid ${C.b1}` }}>
+      <span style={{ fontSize: 11, color: C.t2 }}>{label}</span>
+      <div style={{ textAlign: "left" }}>
+        <span style={{ fontFamily: "JetBrains Mono", fontSize: 12, fontWeight: 700, color: vc || C.t1 }}>{value}</span>
+        {sub && <span style={{ fontSize: 9, color: C.t3, marginRight: 6 }}>{sub}</span>}
+      </div>
+    </div>
+  );
+
+  return (
+    <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 }}>
+
+      {/* ── מחיר vs ממוצעים נעים ── */}
+      <div className="panel">
+        <div className="sec"><span className="secb" style={{ background: C.blu }} />ממוצעים נעים</div>
+        <Row label="מחיר נוכחי" value={`$${price}`} vc={color} />
+        {ma50 && <Row
+          label="MA50"
+          value={`$${ma50}`}
+          sub={aboveMa50 ? `+${((price-ma50)/ma50*100).toFixed(1)}% ↑` : `${((price-ma50)/ma50*100).toFixed(1)}% ↓`}
+          vc={aboveMa50 ? C.grn : C.red}
+        />}
+        {ma200 && <Row
+          label="MA200"
+          value={`$${ma200}`}
+          sub={aboveMa200 ? `+${((price-ma200)/ma200*100).toFixed(1)}% ↑` : `${((price-ma200)/ma200*100).toFixed(1)}% ↓`}
+          vc={aboveMa200 ? C.grn : C.red}
+        />}
+        {goldenCross !== null && <Row
+          label="מצב MA"
+          value={goldenCross ? "Golden Cross ✨" : "Death Cross ⚠️"}
+          vc={goldenCross ? C.grn : C.red}
+        />}
+        {quote.macd !== null && <Row label="MACD" value={quote.macd > 0 ? `+${quote.macd}` : `${quote.macd}`} vc={quote.macd > 0 ? C.grn : C.red} />}
+      </div>
+
+      {/* ── RSI + וליום ── */}
+      <div className="panel">
+        <div className="sec"><span className="secb" style={{ background: C.pur }} />מומנטום + נפח</div>
+        {quote.rsi && <>
+          <div style={{ marginBottom: 10 }}>
+            <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 5 }}>
+              <span style={{ fontSize: 11, color: C.t2 }}>RSI (14)</span>
+              <span style={{ fontFamily: "JetBrains Mono", fontSize: 13, fontWeight: 700, color: rsiColor }}>{quote.rsi} — {rsiLabel}</span>
+            </div>
+            <div style={{ height: 8, background: C.b1, borderRadius: 4, position: "relative", overflow: "hidden" }}>
+              <div style={{ position: "absolute", left: 0, top: 0, bottom: 0, width: "30%", background: "rgba(0,212,126,.3)" }} />
+              <div style={{ position: "absolute", right: 0, top: 0, bottom: 0, width: "30%", background: "rgba(255,61,90,.3)" }} />
+              <div style={{ position: "absolute", top: -1, width: 10, height: 10, borderRadius: "50%", background: rsiColor, left: `calc(${quote.rsi}% - 5px)` }} />
+            </div>
+            <div style={{ display: "flex", justifyContent: "space-between", fontSize: 9, color: C.t3, marginTop: 2 }}>
+              <span>0 — Oversold</span><span>50</span><span>Overbought — 100</span>
+            </div>
+          </div>
+        </>}
+        {volRatio && <Row
+          label="וליום היום"
+          value={quote.volume ? (quote.volume / 1e6).toFixed(1) + "M" : "-"}
+          sub={`${volRatio.toFixed(1)}x ממוצע`}
+          vc={volRatio > 2 ? C.amb : C.t1}
+        />}
+        {quote.avgVolume && <Row label="וליום ממוצע 20D" value={(quote.avgVolume / 1e6).toFixed(1) + "M"} />}
+      </div>
+
+      {/* ── טווח 52 שבועות ── */}
+      <div className="panel" style={{ gridColumn: "1/-1" }}>
+        <div className="sec"><span className="secb" style={{ background: C.amb }} />טווח 52 שבועות + מיקום</div>
+        {rangePos !== null && <>
+          <div style={{ display: "flex", justifyContent: "space-between", fontSize: 10, color: C.t3, marginBottom: 6 }}>
+            <span>שפל 52W: <b style={{ color: C.red }}>${quote.low52}</b></span>
+            <span style={{ color: color }}>● ${price} ({pctFromHigh}% מהשיא)</span>
+            <span>שיא 52W: <b style={{ color: C.grn }}>${quote.high52}</b></span>
+          </div>
+          <div style={{ height: 10, background: C.b1, borderRadius: 5, position: "relative" }}>
+            <div style={{ height: "100%", borderRadius: 5, background: "linear-gradient(90deg,#ff3d5a44,#f59e0b44,#00d47e44)", width: "100%" }} />
+            <div style={{ width: 16, height: 16, background: color, borderRadius: "50%", position: "absolute", top: -3, left: `calc(${rangePos}% - 8px)`, border: "2px solid var(--bg)", boxShadow: `0 0 8px ${color}88` }} />
+          </div>
+          <div style={{ marginTop: 8, fontSize: 10, color: C.t2 }}>
+            המניה נמצאת ב-<b style={{ color: color }}>{rangePos.toFixed(0)}%</b> מהטווח השנתי שלה
+          </div>
+        </>}
+      </div>
+
+      {/* ── הערכת שווי בזמן אמת ── */}
+      {val && !val.error && (
+        <div className="panel" style={{ gridColumn: "1/-1" }}>
+          <div className="sec"><span className="secb" style={{ background: C.gld }} />הערכת שווי בזמן אמת — Yahoo Finance</div>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: 8 }}>
+            {[
+              ["שווי שוק", val.marketCap],
+              ["P/E", val.pe ? val.pe + "x" : null],
+              ["Forward P/E", val.forwardPE ? val.forwardPE + "x" : null],
+              ["PEG", val.pegRatio],
+              ["P/S", val.ps ? val.ps + "x" : null],
+              ["P/B", val.pb ? val.pb + "x" : null],
+              ["EV/EBITDA", val.evEbitda ? val.evEbitda + "x" : null],
+              ["EV/Revenue", val.evRevenue ? val.evRevenue + "x" : null],
+              ["EPS", val.eps ? "$" + val.eps : null],
+              ["Fwd EPS", val.forwardEps ? "$" + val.forwardEps : null],
+              ["FCF", val.freeCashflow],
+              ["D/E", val.debtToEquity],
+              ["גידול הכנסות", val.revenueGrowth ? val.revenueGrowth + "%" : null],
+              ["שולי גולמי", val.grossMargin ? val.grossMargin + "%" : null],
+              ["שולי נקיים", val.netMargin ? val.netMargin + "%" : null],
+              ["ROE", val.roe ? val.roe + "%" : null],
+              ["Beta", val.beta],
+              ["Short %", val.shortFloat ? val.shortFloat + "%" : null],
+            ].filter(([, v]) => v != null).map(([l, v]) => (
+              <div key={l} className="kpi" style={{ minWidth: 0 }}>
+                <div className="kl">{l}</div>
+                <div className="kv" style={{ color, fontSize: 13 }}>{v}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* ── רכישות פנימיות ── */}
+      {insiders && insiders.length > 0 && (
+        <div className="panel" style={{ gridColumn: "1/-1" }}>
+          <div className="sec"><span className="secb" style={{ background: C.grn }} />עסקאות פנימיות אחרונות</div>
+          <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
+            {insiders.slice(0, 5).map((t, i) => (
+              <div key={i} style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "5px 8px", borderRadius: 5, background: t.isBuy ? "rgba(0,212,126,.07)" : "rgba(255,61,90,.07)", border: `1px solid ${t.isBuy ? C.grn : C.red}22` }}>
+                <span style={{ fontSize: 10, color: C.t2 }}>{t.name}</span>
+                <span style={{ fontSize: 9, color: C.t3 }}>{t.role}</span>
+                <span style={{ fontFamily: "JetBrains Mono", fontSize: 11, color: t.isBuy ? C.grn : C.red, fontWeight: 700 }}>
+                  {t.isBuy ? "▲ קנה" : "▼ מכר"} {t.shares ? t.shares.toLocaleString() : "—"} מניות
+                </span>
+                <span style={{ fontFamily: "JetBrains Mono", fontSize: 10, color: C.t3 }}>
+                  {t.value ? t.value : t.price ? "$" + t.price : ""} · {t.date}
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+
+function StockPage({ s, livePx, liveChg, liveChgAmt, liveVolume, liveAvgVolume, liveTs, liveQuote, liveVal, liveInsiders, onRefresh }) {
   const px = livePx || s.price;
   return (
     <div className="inner">
@@ -341,7 +514,7 @@ function StockPage({ s, livePx, liveChg, liveTs, onRefresh }) {
             <div style={{ fontSize: 10, color: C.t2, textAlign: "left", marginTop: 3 }}>P/E {s.pe} · Beta {s.beta}</div>
           </div>
         </div>
-        <LiveStrip s={s} price={px} chg={liveChg} ts={liveTs} onRefresh={onRefresh} />
+        <LiveStrip s={s} price={px} chg={liveChg} chgAmt={liveChgAmt} volume={liveVolume} avgVolume={liveAvgVolume} ts={liveTs} onRefresh={onRefresh} />
         <div style={{ marginTop: 10 }}>
           <div style={{ fontSize: 9, letterSpacing: 2, color: C.t3, fontWeight: 600, marginBottom: 4 }}>52 WEEK RANGE — {s.w52l} → (שיא)</div>
           <div style={{ display: "flex", justifyContent: "space-between", fontFamily: "JetBrains Mono", fontSize: 10, color: C.t3, marginBottom: 4 }}>
@@ -385,6 +558,12 @@ function StockPage({ s, livePx, liveChg, liveTs, onRefresh }) {
             <div style={{ fontSize: 12, fontWeight: 700, color: s.buffC }}>{s.buffV}</div>
           </div>
         </div>
+      </div>
+
+      {/* ── TECHNICAL ANALYSIS + LIVE VALUATION ── */}
+      <div className="panel" style={{ marginBottom: 12 }}>
+        <div className="sec"><span className="secb" style={{ background: C.blu }} />ניתוח טכני + הערכת שווי בזמן אמת</div>
+        <TechPanel quote={liveQuote} val={liveVal} insiders={liveInsiders} color={s.color} />
       </div>
 
       <div className="g2">
@@ -663,6 +842,9 @@ export default function App() {
   const [tab, setTab] = useState("ov");
   const [prices, setPrices] = useState({});
   const [liveTs, setLiveTs] = useState({});
+  const [liveQuote, setLiveQuote] = useState({});
+  const [liveVal, setLiveVal] = useState({});
+  const [liveInsiders, setLiveInsiders] = useState({});
   const [rfLoading, setRfLoading] = useState(false);
   const [tsLabel, setTsLabel] = useState("לחץ לעדכון");
 
@@ -671,51 +853,81 @@ export default function App() {
   async function refreshAll() {
     setRfLoading(true); setTsLabel("טוען...");
     try {
-      const raw = await callClaude(
-        "Return ONLY JSON array, no markdown: [{\"ticker\":\"X\",\"price\":\"123.45\",\"change\":\"+1.2%\"},...] for all 7.",
-        "Current prices for: AMZN, MSFT, META, IBIT (iShares Bitcoin ETF), VCX (Fundrise Innovation Fund NYSE), CEG (Constellation Energy), DRAM (Roundhill Memory ETF NYSE). Search each now."
-      );
-      let data = null;
-      const m = raw.match(/\[[\s\S]*?\]/);
-      if (m) { try { data = JSON.parse(m[0]); } catch(e) {} }
-      if (!data) {
-        const objs = [...raw.matchAll(/\{[^{}]+\}/g)];
-        if (objs.length) { try { data = objs.map(o => JSON.parse(o[0])); } catch(e) {} }
-      }
+      const tickers = STOCKS.map(s => s.tk);
+      const [quoteResults, valResults, insiderResults] = await Promise.all([
+        Promise.allSettled(tickers.map(tk => fetch(`/api/quote/${tk}`).then(r => r.json()))),
+        Promise.allSettled(tickers.map(tk => fetch(`/api/valuation/${tk}`).then(r => r.json()))),
+        Promise.allSettled(tickers.map(tk => fetch(`/api/insider/${tk}`).then(r => r.json())))
+      ]);
+
       const ts = new Date().toLocaleTimeString("he-IL", { hour: "2-digit", minute: "2-digit" });
-      if (data && Array.isArray(data)) {
-        const next = {};
-        const nextTs = {};
-        data.forEach(item => {
-          if (!item.ticker || !item.price) return;
-          const px = "$" + String(item.price).replace("$", "").replace(",", "");
-          next[item.ticker] = { px, chg: item.change || "" };
-          nextTs[item.ticker] = "⏱ " + ts;
-        });
-        setPrices(p => ({ ...p, ...next }));
-        setLiveTs(t => ({ ...t, ...nextTs }));
-      }
-      setTsLabel("עודכן " + new Date().toLocaleTimeString("he-IL", { hour: "2-digit", minute: "2-digit" }));
+      const nextPrices = {}, nextTs = {}, nextQuote = {}, nextVal = {}, nextInsiders = {};
+
+      quoteResults.forEach((res, i) => {
+        const tk = tickers[i];
+        if (res.status === "fulfilled" && res.value && !res.value.error) {
+          const q = res.value;
+          nextPrices[tk] = {
+            px: "$" + q.price,
+            chg: (q.changePct >= 0 ? "+" : "") + q.changePct + "%",
+            chgAmt: (q.change >= 0 ? "+" : "") + q.change,
+            volume: q.volume,
+            avgVolume: q.avgVolume
+          };
+          nextTs[tk] = "⏱ " + ts;
+          nextQuote[tk] = q;
+        }
+      });
+
+      valResults.forEach((res, i) => {
+        const tk = tickers[i];
+        if (res.status === "fulfilled" && res.value && !res.value.error) {
+          nextVal[tk] = res.value;
+        }
+      });
+
+      insiderResults.forEach((res, i) => {
+        const tk = tickers[i];
+        if (res.status === "fulfilled" && Array.isArray(res.value)) {
+          nextInsiders[tk] = res.value;
+        }
+      });
+
+      setPrices(p => ({ ...p, ...nextPrices }));
+      setLiveTs(t => ({ ...t, ...nextTs }));
+      setLiveQuote(q => ({ ...q, ...nextQuote }));
+      setLiveVal(v => ({ ...v, ...nextVal }));
+      setLiveInsiders(ins => ({ ...ins, ...nextInsiders }));
+      setTsLabel("עודכן " + ts);
     } catch(e) { setTsLabel("שגיאה — נסה שוב"); }
     setRfLoading(false);
   }
 
   async function refreshSingle(tkr) {
-    const s = STOCKS.find(x => x.tk === tkr);
     try {
-      const raw = await callClaude(
-        'Return ONLY JSON: {"ticker":"X","price":"123.45","change":"+1.2%"} no markdown.',
-        `Current price of ${s?.name || tkr} ticker ${tkr}. ${tkr === "VCX" ? "Search Fundrise Innovation Fund VCX NYSE" : ""} ${tkr === "DRAM" ? "Search Roundhill Memory ETF DRAM NYSE" : ""} Return JSON.`
-      );
-      const m = raw.match(/\{[\s\S]*?\}/);
-      if (m) {
-        const d = JSON.parse(m[0]);
-        if (d.price) {
-          const px = "$" + String(d.price).replace("$", "").replace(",", "");
-          const ts = new Date().toLocaleTimeString("he-IL", { hour: "2-digit", minute: "2-digit" });
-          setPrices(p => ({ ...p, [tkr]: { px, chg: d.change || "" } }));
-          setLiveTs(t => ({ ...t, [tkr]: "⏱ " + ts }));
-        }
+      const [qRes, vRes, insRes] = await Promise.allSettled([
+        fetch(`/api/quote/${tkr}`).then(r => r.json()),
+        fetch(`/api/valuation/${tkr}`).then(r => r.json()),
+        fetch(`/api/insider/${tkr}`).then(r => r.json())
+      ]);
+      const ts = new Date().toLocaleTimeString("he-IL", { hour: "2-digit", minute: "2-digit" });
+      if (qRes.status === "fulfilled" && qRes.value && !qRes.value.error) {
+        const q = qRes.value;
+        setPrices(p => ({ ...p, [tkr]: {
+          px: "$" + q.price,
+          chg: (q.changePct >= 0 ? "+" : "") + q.changePct + "%",
+          chgAmt: (q.change >= 0 ? "+" : "") + q.change,
+          volume: q.volume,
+          avgVolume: q.avgVolume
+        }}));
+        setLiveTs(t => ({ ...t, [tkr]: "⏱ " + ts }));
+        setLiveQuote(q2 => ({ ...q2, [tkr]: q }));
+      }
+      if (vRes.status === "fulfilled" && vRes.value && !vRes.value.error) {
+        setLiveVal(v => ({ ...v, [tkr]: vRes.value }));
+      }
+      if (insRes.status === "fulfilled" && Array.isArray(insRes.value)) {
+        setLiveInsiders(ins => ({ ...ins, [tkr]: insRes.value }));
       }
     } catch(e) {}
   }
@@ -785,7 +997,13 @@ export default function App() {
               s={curStock}
               livePx={prices[curStock.tk]?.px}
               liveChg={prices[curStock.tk]?.chg}
+              liveChgAmt={prices[curStock.tk]?.chgAmt}
+              liveVolume={prices[curStock.tk]?.volume}
+              liveAvgVolume={prices[curStock.tk]?.avgVolume}
               liveTs={liveTs[curStock.tk]}
+              liveQuote={liveQuote[curStock.tk]}
+              liveVal={liveVal[curStock.tk]}
+              liveInsiders={liveInsiders[curStock.tk]}
               onRefresh={() => refreshSingle(curStock.tk)}
             />
           )}
