@@ -1,10 +1,7 @@
 # Dependencies
 node_modules/
 
-# Production build (Railway builds this from source)
-build/
-
-# Lock file (optional to commit; excluding to keep repo clean)
+# Lock file
 package-lock.json
 
 # Misc
