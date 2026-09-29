@@ -11,7 +11,7 @@ app.use((req, res, next) => {
 
 // ── Yahoo Finance via yahoo-finance2 (handles crumb/cookie auth) ──────
 const YF = require("yahoo-finance2").default;
-const yf = new YF({ suppressNotices: ["yahooSurvey"] });
+const yf = new YF({ suppressNotices: ["yahooSurvey", "ripHistorical"] });
 
 // ── RSI calculation ───────────────────────────────────────────────────
 function calcRSI(closes, period = 14) {
@@ -44,19 +44,22 @@ function calcEMA(data, period) {
 app.get("/api/quote/:symbol", async (req, res) => {
   const sym = req.params.symbol.toUpperCase();
   try {
-    // Get current quote + 1 year historical in parallel
+    // Get current quote + 1 year chart data in parallel
+    const today = new Date().toISOString().slice(0, 10);
     const oneYearAgo = new Date();
     oneYearAgo.setFullYear(oneYearAgo.getFullYear() - 1);
+    const from = oneYearAgo.toISOString().slice(0, 10);
 
-    const [q, hist] = await Promise.all([
+    const [q, chartData] = await Promise.all([
       yf.quote(sym, {}, { validateResult: false }),
-      yf.historical(sym, { period1: oneYearAgo.toISOString().slice(0, 10), interval: "1d" }, { validateResult: false })
+      yf.chart(sym, { period1: from, period2: today, interval: "1d" }, { validateResult: false })
     ]);
 
-    const closes = hist.map(d => d.close).filter(Boolean);
-    const highs  = hist.map(d => d.high).filter(Boolean);
-    const lows   = hist.map(d => d.low).filter(Boolean);
-    const vols   = hist.map(d => d.volume).filter(Boolean);
+    const quotes = chartData.quotes || [];
+    const closes = quotes.map(d => d.close).filter(v => v != null);
+    const highs  = quotes.map(d => d.high).filter(v => v != null);
+    const lows   = quotes.map(d => d.low).filter(v => v != null);
+    const vols   = quotes.map(d => d.volume).filter(v => v != null);
 
     const price     = q.regularMarketPrice ?? closes[closes.length - 1] ?? 0;
     const prevClose = q.regularMarketPreviousClose ?? price;
