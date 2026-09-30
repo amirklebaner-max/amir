@@ -64,18 +64,22 @@ app.get("/api/quote/:symbol", async (req, res) => {
     const now         = Math.floor(Date.now() / 1000);
     const oneYearAgo  = now - 365 * 24 * 3600;
 
-    const [quote, candles] = await Promise.all([
+    const [quoteRes, candleRes] = await Promise.allSettled([
       fh(`/quote?symbol=${sym}`),
       fh(`/stock/candle?symbol=${sym}&resolution=D&from=${oneYearAgo}&to=${now}`)
     ]);
+
+    if (quoteRes.status === "rejected") throw quoteRes.reason;
+    const quote   = quoteRes.value;
+    const candles = candleRes.status === "fulfilled" ? candleRes.value : {};
 
     const closes = (candles.c || []).filter(v => v != null);
     const highs  = (candles.h || []).filter(v => v != null);
     const lows   = (candles.l || []).filter(v => v != null);
     const vols   = (candles.v || []).filter(v => v != null);
 
-    const price     = quote.c ?? closes.at(-1) ?? 0;
-    const prevClose = quote.pc ?? price;
+    const price     = (quote.c && quote.c !== 0) ? quote.c : (closes.at(-1) ?? 0);
+    const prevClose = (quote.pc && quote.pc !== 0) ? quote.pc : price;
     const change    = +(price - prevClose).toFixed(2);
     const changePct = quote.dp != null ? +quote.dp.toFixed(2)
                     : (prevClose ? +((change / prevClose) * 100).toFixed(2) : 0);
