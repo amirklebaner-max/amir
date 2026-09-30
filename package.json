@@ -7,7 +7,9 @@
   },
   "dependencies": {
     "express": "^4.18.2",
-    "node-fetch": "^2.7.0",
+    "node-fetch": "^2.7.0"
+  },
+  "devDependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-scripts": "5.0.1"
@@ -17,7 +19,6 @@
     "build": "react-scripts build",
     "dev": "react-scripts start"
   },
-  "proxy": "http://localhost:3000",
   "browserslist": {
     "production": [
       ">0.2%",
