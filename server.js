@@ -4,6 +4,11 @@ const app     = express();
 const PORT    = process.env.PORT || 3000;
 const FH_KEY  = process.env.FINNHUB_KEY || "";
 
+// Support Node < 18 (no built-in fetch)
+if (!globalThis.fetch) {
+  try { globalThis.fetch = require("node-fetch"); } catch(_) {}
+}
+
 app.use(express.json());
 app.use((req, res, next) => { res.header("Access-Control-Allow-Origin", "*"); next(); });
 

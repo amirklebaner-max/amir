@@ -2,12 +2,15 @@
   "name": "portfolio-dashboard",
   "version": "1.0.0",
   "private": true,
+  "engines": {
+    "node": ">=18.0.0"
+  },
   "dependencies": {
     "express": "^4.18.2",
+    "node-fetch": "^2.7.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-scripts": "5.0.1",
-    "yahoo-finance2": "^4.0.2"
+    "react-scripts": "5.0.1"
   },
   "scripts": {
     "start": "node server.js",
