@@ -1,3 +1,7 @@
+# Source (pre-built; Railway serves build/ directly)
+src/
+public/
+
 # Dependencies
 node_modules/
 
